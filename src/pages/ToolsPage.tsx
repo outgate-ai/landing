@@ -11,7 +11,7 @@ export default function ToolsPage() {
   const [copiedId, setCopiedId] = useState('');
 
   useEffect(() => {
-    fetch('https://outgate.ai/download/VERSION')
+    fetch(`${window.location.origin}/download/VERSION`)
       .then(r => r.text())
       .then(v => setVersion(v.trim()))
       .catch(() => {});
@@ -27,7 +27,8 @@ export default function ToolsPage() {
     setSelectedPlatform(`${os}-${detectedArch}`);
   }, []);
 
-  const installCmd = 'curl -fsSL https://outgate.ai/download/install.sh | sh';
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://dev.outgate.ai';
+  const installCmd = `curl -fsSL ${baseUrl}/download/install.sh | sh`;
   const envCmd = `eval $(og env ${selectedTool})`;
   const wrapCmd = `og ${selectedTool}`;
   const toolLabel = selectedTool === 'claude' ? 'Claude Code' : 'Codex';
@@ -126,7 +127,7 @@ export default function ToolsPage() {
           {selectedPlatform && (
             <div className="tools-download-btn-wrap">
               <a
-                href={`https://outgate.ai/download/latest/og-${selectedPlatform}`}
+                href={`${baseUrl}/download/latest/og-${selectedPlatform}`}
                 className="tools-download-btn"
               >
                 {t('tools.downloadBtn', getPlatformLabel())}
