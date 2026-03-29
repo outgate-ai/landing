@@ -36,13 +36,10 @@ body {
 
 .header-logo {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.95);
-  padding: 4px 10px;
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
   transition: all 0.3s ease;
   cursor: pointer;
   text-decoration: none;
@@ -50,8 +47,6 @@ body {
 
 .header-logo:hover {
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.05);
 }
 
 .header-nav {
