@@ -91,14 +91,10 @@ function exportLogo(previewEl: HTMLElement | null, filename: string, format: 'sv
   if (!logoSpan) return;
 
   // Measure actual rendered size
-  const rect = logoSpan.getBoundingClientRect();
-  const w = Math.ceil(rect.width);
-  const h = Math.ceil(rect.height);
   const style = window.getComputedStyle(logoSpan);
   const color = style.color;
   const fontSize = parseFloat(style.fontSize);
   const fontWeight = style.fontWeight;
-  const letterSpacing = style.letterSpacing;
   const text = logoSpan.textContent || '';
   const isFull = text.includes('.ai');
 
