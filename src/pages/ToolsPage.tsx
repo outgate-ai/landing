@@ -28,8 +28,8 @@ export default function ToolsPage() {
   }, []);
 
   const installCmd = 'curl -fsSL https://outgate.ai/download/install.sh | sh';
-  const envCmd = `eval $(gw env ${selectedTool})`;
-  const wrapCmd = `gw ${selectedTool}`;
+  const envCmd = `eval $(og env ${selectedTool})`;
+  const wrapCmd = `og ${selectedTool}`;
   const toolLabel = selectedTool === 'claude' ? 'Claude Code' : 'Codex';
 
   const copyToClipboard = (text: string, id: string) => {
@@ -126,7 +126,7 @@ export default function ToolsPage() {
           {selectedPlatform && (
             <div className="tools-download-btn-wrap">
               <a
-                href={`https://outgate.ai/download/latest/gw-${selectedPlatform}`}
+                href={`https://outgate.ai/download/latest/og-${selectedPlatform}`}
                 className="tools-download-btn"
               >
                 {t('tools.downloadBtn', getPlatformLabel())}
@@ -156,7 +156,7 @@ export default function ToolsPage() {
           <div className="tools-steps-horizontal">
             <div className="tools-step-h">
               <div className="tools-step-num">1</div>
-              <div className="tools-code">gw login</div>
+              <div className="tools-code">og login</div>
               <p>{t('tools.step1')}</p>
             </div>
             <div className="tools-step-h">
@@ -166,7 +166,7 @@ export default function ToolsPage() {
             </div>
             <div className="tools-step-h">
               <div className="tools-step-num">3</div>
-              <div className="tools-code">gw status</div>
+              <div className="tools-code">og status</div>
               <p>{t('tools.step3')}</p>
             </div>
           </div>

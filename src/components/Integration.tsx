@@ -9,21 +9,21 @@ export default function Integration() {
   const toolLabel = tool === 'claude' ? 'Claude Code' : 'Codex';
   const lines = tool === 'claude'
     ? [
-        { prompt: true, text: 'gw login' },
+        { prompt: true, text: 'og login' },
         { blank: true },
         { comment: true, text: '# Run Claude Code as usual — traffic routes through Outgate' },
-        { prompt: true, text: 'gw claude --resume 4a7f2e91' },
+        { prompt: true, text: 'og claude --resume 4a7f2e91' },
         { blank: true },
-        { prompt: true, text: 'gw status' },
+        { prompt: true, text: 'og status' },
         { output: true, text: 'Requests: 1.7K | Tokens: 569M | Top: claude-opus-4-6' },
       ]
     : [
-        { prompt: true, text: 'gw login' },
+        { prompt: true, text: 'og login' },
         { blank: true },
         { comment: true, text: '# Run Codex as usual — traffic routes through Outgate' },
-        { prompt: true, text: 'gw codex --model gpt-5' },
+        { prompt: true, text: 'og codex --model gpt-5' },
         { blank: true },
-        { prompt: true, text: 'gw status' },
+        { prompt: true, text: 'og status' },
         { output: true, text: 'Requests: 2.4K | Tokens: 120M | Top: gpt-5' },
       ];
 
