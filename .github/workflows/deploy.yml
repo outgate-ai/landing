@@ -64,17 +64,25 @@ jobs:
         run: npm run prerender
 
       - name: Inject environment markers
+        shell: python3 {0}
         run: |
-          if [ "$IS_PROD" = "true" ]; then
-            # Prod: allow indexing, enable GA
-            sed -i 's|<!-- __ROBOTS_META__ -->|<meta name="robots" content="index, follow" />|' dist/index.html
-            sed -i 's|<!-- __GA_SNIPPET__ -->|<script async src="https://www.googletagmanager.com/gtag/js?id=G-3XTL1T794G"></script><script>window.dataLayer=window.dataLayer\|\|[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-3XTL1T794G");gtag("config","AW-18043717357");</script>|' dist/index.html
-          else
-            # Dev: block indexing, no GA
-            sed -i 's|<!-- __ROBOTS_META__ -->|<meta name="robots" content="noindex, nofollow" />|' dist/index.html
-            sed -i 's|<!-- __GA_SNIPPET__ -->||' dist/index.html
-            echo -e "User-agent: *\nDisallow: /" > dist/robots.txt
-          fi
+          import pathlib
+          html = pathlib.Path('dist/index.html').read_text()
+          is_prod = '${{ env.IS_PROD }}' == 'true'
+
+          if is_prod:
+              html = html.replace('<!-- __ROBOTS_META__ -->', '<meta name="robots" content="index, follow" />')
+              ga = '''<script async src="https://www.googletagmanager.com/gtag/js?id=G-3XTL1T794G"></script>
+              <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-3XTL1T794G");gtag("config","AW-18043717357");</script>'''
+              html = html.replace('<!-- __GA_SNIPPET__ -->', ga)
+          else:
+              html = html.replace('<!-- __ROBOTS_META__ -->', '<meta name="robots" content="noindex, nofollow" />')
+              html = html.replace('<!-- __GA_SNIPPET__ -->', '')
+              pathlib.Path('dist/robots.txt').write_text('User-agent: *\nDisallow: /\n')
+
+          pathlib.Path('dist/index.html').write_text(html)
+          assert '__ROBOTS_META__' not in html, 'ROBOTS placeholder not replaced!'
+          print(f"Injected {'prod' if is_prod else 'dev'} markers")
 
       - name: Deploy to S3
         run: aws s3 sync dist/ "s3://${{ steps.tf.outputs.s3_bucket }}" --delete
