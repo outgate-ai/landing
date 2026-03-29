@@ -52,6 +52,15 @@ jobs:
           VITE_CONSOLE_URL: ${{ secrets.CONSOLE_URL || 'https://console.dev.outgate.ai' }}
           VITE_APP_NAME: Outgate.ai
 
+      - name: Inject dev environment markers
+        run: |
+          # Block indexing on dev
+          sed -i 's|<!-- __ROBOTS_META__ -->|<meta name="robots" content="noindex, nofollow" />|' dist/index.html
+          # No analytics on dev
+          sed -i 's|<!-- __GA_SNIPPET__ -->||' dist/index.html
+          # Block crawlers in robots.txt
+          echo -e "User-agent: *\nDisallow: /" > dist/robots.txt
+
       - name: Prerender for bots
         run: npm run prerender
 
