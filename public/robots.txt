@@ -1,3 +1,2 @@
 User-agent: *
-Allow: /
-Sitemap: https://outgate.ai/sitemap.xml
+Disallow: /
