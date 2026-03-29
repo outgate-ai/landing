@@ -1,72 +1,10 @@
-terraform {
-  required_version = ">= 1.10"
-
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-
-  backend "s3" {
-    bucket         = "outgate-dev-terraform-state"
-    key            = "landing/terraform.tfstate"
-    region         = "eu-central-1"
-    dynamodb_table = "outgate-terraform-locks"
-    encrypt        = true
-  }
-}
-
-provider "aws" {
-  region = var.region
-}
-
-variable "region" {
-  default = "eu-central-1"
-}
-
-variable "project" {
-  default = "outgate"
-}
-
-variable "environment" {
-  default = "dev"
-}
-
-variable "domain" {
-  description = "Custom domain for the landing site"
-  default     = "dev.outgate.ai"
-}
-
 ################################################################################
-# Infrastructure remote state — reads cert ARNs from infrastructure repo
-################################################################################
-
-data "terraform_remote_state" "infrastructure" {
-  backend = "s3"
-  config = {
-    bucket = "outgate-dev-terraform-state"
-    key    = "infrastructure/terraform.tfstate"
-    region = "eu-central-1"
-  }
-}
-
-locals {
-  certificate_arn = data.terraform_remote_state.infrastructure.outputs.cloudfront_certificate_arn
-}
-
-################################################################################
-# S3 Bucket
+# S3 Buckets
 ################################################################################
 
 resource "aws_s3_bucket" "landing" {
   bucket = "${var.project}-${var.environment}-landing"
-
-  tags = {
-    Project     = var.project
-    Environment = var.environment
-    ManagedBy   = "terraform"
-  }
+  tags = { Project = var.project, Environment = var.environment, ManagedBy = "terraform" }
 }
 
 resource "aws_s3_bucket_public_access_block" "landing" {
@@ -77,18 +15,9 @@ resource "aws_s3_bucket_public_access_block" "landing" {
   restrict_public_buckets = true
 }
 
-################################################################################
-# S3 Bucket — CLI releases (served at /download/*)
-################################################################################
-
 resource "aws_s3_bucket" "cli_releases" {
   bucket = "${var.project}-${var.environment}-cli-releases"
-
-  tags = {
-    Project     = var.project
-    Environment = var.environment
-    ManagedBy   = "terraform"
-  }
+  tags = { Project = var.project, Environment = var.environment, ManagedBy = "terraform" }
 }
 
 resource "aws_s3_bucket_public_access_block" "cli_releases" {
@@ -121,10 +50,6 @@ resource "aws_cloudfront_origin_access_control" "cli_releases" {
   signing_protocol                  = "sigv4"
 }
 
-################################################################################
-# CloudFront Function — serve prerendered HTML to bots/crawlers
-################################################################################
-
 resource "aws_cloudfront_function" "bot_prerender" {
   name    = "${var.project}-${var.environment}-bot-prerender"
   runtime = "cloudfront-js-2.0"
@@ -141,19 +66,13 @@ function handler(event) {
     ua = request.headers['user-agent'].value.toLowerCase();
   }
 
-  // Skip static assets (anything with a file extension)
   if (uri.match(/\.\w{2,5}$/)) {
     return request;
   }
 
-  // Serve prerendered HTML to non-browser user agents.
-  // Real browsers always include a rendering engine token like
-  // Chrome/, Firefox/, Safari/, Edge/, or Opera/ in their UA.
-  // Anything without one is a bot, crawler, or fetch tool.
   var isBrowser = /chrome\/|firefox\/|safari\/|edg\/|opera\/|opr\//i.test(ua);
 
   if (!isBrowser) {
-    // Map legal pages to their prerendered files
     var legalPages = {'/privacy': '/privacy.html', '/terms': '/terms.html', '/impressum': '/impressum.html', '/tools': '/tools.html'};
     var cleanUri = uri.replace(/\/$/, '') || '/';
     var mapped = legalPages[cleanUri];
@@ -170,8 +89,7 @@ resource "aws_cloudfront_distribution" "landing" {
   default_root_object = "index.html"
   price_class         = "PriceClass_100"
   comment             = "${var.project} ${var.environment} landing"
-
-  aliases = [var.domain]
+  aliases             = [var.domain]
 
   origin {
     domain_name              = aws_s3_bucket.landing.bucket_regional_domain_name
@@ -185,8 +103,6 @@ resource "aws_cloudfront_distribution" "landing" {
     origin_access_control_id = aws_cloudfront_origin_access_control.cli_releases.id
   }
 
-  # /download/* → CLI releases bucket (strip /download prefix via origin path not needed;
-  # S3 key includes the /download prefix, so we store as download/latest/gw-darwin-arm64 etc.)
   ordered_cache_behavior {
     path_pattern             = "/download/*"
     target_origin_id         = "s3-cli-releases"
@@ -211,7 +127,6 @@ resource "aws_cloudfront_distribution" "landing" {
     }
   }
 
-  # SPA: serve index.html for missing paths
   custom_error_response {
     error_code            = 403
     response_code         = 200
@@ -227,7 +142,7 @@ resource "aws_cloudfront_distribution" "landing" {
   }
 
   viewer_certificate {
-    acm_certificate_arn      = local.certificate_arn
+    acm_certificate_arn      = var.certificate_arn
     ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1.2_2021"
   }
@@ -238,20 +153,15 @@ resource "aws_cloudfront_distribution" "landing" {
     }
   }
 
-  tags = {
-    Project     = var.project
-    Environment = var.environment
-    ManagedBy   = "terraform"
-  }
+  tags = { Project = var.project, Environment = var.environment, ManagedBy = "terraform" }
 }
 
 ################################################################################
-# S3 Bucket Policy - allow CloudFront OAC
+# S3 Bucket Policies
 ################################################################################
 
 resource "aws_s3_bucket_policy" "landing" {
   bucket = aws_s3_bucket.landing.id
-
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
@@ -260,16 +170,13 @@ resource "aws_s3_bucket_policy" "landing" {
       Principal = { Service = "cloudfront.amazonaws.com" }
       Action    = "s3:GetObject"
       Resource  = "${aws_s3_bucket.landing.arn}/*"
-      Condition = {
-        StringEquals = { "AWS:SourceArn" = aws_cloudfront_distribution.landing.arn }
-      }
+      Condition = { StringEquals = { "AWS:SourceArn" = aws_cloudfront_distribution.landing.arn } }
     }]
   })
 }
 
 resource "aws_s3_bucket_policy" "cli_releases" {
   bucket = aws_s3_bucket.cli_releases.id
-
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
@@ -278,33 +185,7 @@ resource "aws_s3_bucket_policy" "cli_releases" {
       Principal = { Service = "cloudfront.amazonaws.com" }
       Action    = "s3:GetObject"
       Resource  = "${aws_s3_bucket.cli_releases.arn}/*"
-      Condition = {
-        StringEquals = { "AWS:SourceArn" = aws_cloudfront_distribution.landing.arn }
-      }
+      Condition = { StringEquals = { "AWS:SourceArn" = aws_cloudfront_distribution.landing.arn } }
     }]
   })
-}
-
-################################################################################
-# Outputs
-################################################################################
-
-output "s3_bucket" {
-  value       = aws_s3_bucket.landing.bucket
-  description = "S3 bucket name for deploying built assets"
-}
-
-output "cloudfront_distribution_id" {
-  value       = aws_cloudfront_distribution.landing.id
-  description = "CloudFront distribution ID for cache invalidation"
-}
-
-output "cloudfront_domain" {
-  value       = aws_cloudfront_distribution.landing.domain_name
-  description = "CloudFront domain — point your DNS CNAME to this value"
-}
-
-output "cli_releases_bucket" {
-  value       = aws_s3_bucket.cli_releases.bucket
-  description = "S3 bucket for CLI release binaries"
 }

@@ -3,8 +3,10 @@ name: Deploy Landing
 on:
   push:
     branches: [main]
+    tags: ['v*']
     paths-ignore:
       - 'terraform/**'
+  workflow_dispatch:
 
 permissions:
   id-token: write
@@ -16,6 +18,12 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: ${{ startsWith(github.ref, 'refs/tags/v') && 'prod' || 'dev' }}
+    env:
+      IS_PROD: ${{ startsWith(github.ref, 'refs/tags/v') }}
+      TF_DIR: ${{ startsWith(github.ref, 'refs/tags/v') && 'terraform/environments/prod' || 'terraform/environments/dev' }}
+      LANDING_DOMAIN: ${{ startsWith(github.ref, 'refs/tags/v') && 'outgate.ai' || 'dev.outgate.ai' }}
+      CONSOLE_URL: ${{ startsWith(github.ref, 'refs/tags/v') && 'https://console.outgate.ai' || 'https://console.dev.outgate.ai' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -36,7 +44,7 @@ jobs:
 
       - name: Get terraform outputs
         id: tf
-        working-directory: terraform
+        working-directory: ${{ env.TF_DIR }}
         run: |
           terraform init -input=false
           echo "s3_bucket=$(terraform output -raw s3_bucket)" >> "$GITHUB_OUTPUT"
@@ -49,20 +57,24 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_CONSOLE_URL: ${{ secrets.CONSOLE_URL || 'https://console.dev.outgate.ai' }}
-          VITE_APP_NAME: Outgate.ai
-
-      - name: Inject dev environment markers
-        run: |
-          # Block indexing on dev
-          sed -i 's|<!-- __ROBOTS_META__ -->|<meta name="robots" content="noindex, nofollow" />|' dist/index.html
-          # No analytics on dev
-          sed -i 's|<!-- __GA_SNIPPET__ -->||' dist/index.html
-          # Block crawlers in robots.txt
-          echo -e "User-agent: *\nDisallow: /" > dist/robots.txt
+          VITE_CONSOLE_URL: ${{ env.CONSOLE_URL }}
+          VITE_APP_NAME: outgate.ai
 
       - name: Prerender for bots
         run: npm run prerender
+
+      - name: Inject environment markers
+        run: |
+          if [ "$IS_PROD" = "true" ]; then
+            # Prod: allow indexing, enable GA
+            sed -i 's|<!-- __ROBOTS_META__ -->|<meta name="robots" content="index, follow" />|' dist/index.html
+            sed -i 's|<!-- __GA_SNIPPET__ -->|<script async src="https://www.googletagmanager.com/gtag/js?id=G-3XTL1T794G"></script><script>window.dataLayer=window.dataLayer\|\|[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-3XTL1T794G");gtag("config","AW-18043717357");</script>|' dist/index.html
+          else
+            # Dev: block indexing, no GA
+            sed -i 's|<!-- __ROBOTS_META__ -->|<meta name="robots" content="noindex, nofollow" />|' dist/index.html
+            sed -i 's|<!-- __GA_SNIPPET__ -->||' dist/index.html
+            echo -e "User-agent: *\nDisallow: /" > dist/robots.txt
+          fi
 
       - name: Deploy to S3
         run: aws s3 sync dist/ "s3://${{ steps.tf.outputs.s3_bucket }}" --delete
@@ -75,7 +87,8 @@ jobs:
 
       - name: Summary
         run: |
-          echo "## Deployment Complete (dev)" >> "$GITHUB_STEP_SUMMARY"
+          ENV_LABEL=${{ env.IS_PROD == 'true' && 'prod' || 'dev' }}
+          echo "## Deployment Complete (${ENV_LABEL})" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "**URL:** https://dev.outgate.ai" >> "$GITHUB_STEP_SUMMARY"
+          echo "**URL:** https://${{ env.LANDING_DOMAIN }}" >> "$GITHUB_STEP_SUMMARY"
           echo "**CloudFront:** \`${{ steps.tf.outputs.cloudfront_domain }}\`" >> "$GITHUB_STEP_SUMMARY"
