@@ -1,0 +1,514 @@
+{
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy | Outgate.ai",
+      "description": "How Outgate.ai collects, uses, and protects your personal data. GDPR compliant."
+    },
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: March 3, 2026",
+    "intro": "This Privacy Policy explains how Outgate AI (\"we\", \"us\", \"our\"), operated by {{operatorName}}, collects, uses, and protects your personal data when you use our AI gateway platform at <consoleLink>console.outgate.ai</consoleLink> and related services (collectively, the \"Service\"). We are committed to protecting your privacy in accordance with the EU General Data Protection Regulation (GDPR), the German Federal Data Protection Act (BDSG), and the German Telecommunications-Telemedia Data Protection Act (TTDSG).",
+    "controller": {
+      "heading": "1. Controller",
+      "p1": "The data controller responsible for the processing of your personal data is:",
+      "address": "{{operatorName}}<br/>Berlin, Germany<br/>Email: <emailLink>{{supportEmail}}</emailLink>"
+    },
+    "dataWeCollect": {
+      "heading": "2. Data We Collect",
+      "account": {
+        "heading": "2.1 Account Data",
+        "p1": "When you register for or use the Service, we collect:",
+        "items": [
+          "Email address",
+          "Full name",
+          "Password (stored as a cryptographic hash, never in plain text)",
+          "Organization name and membership",
+          "User role and permissions"
+        ]
+      },
+      "auth": {
+        "heading": "2.2 Authentication Data",
+        "p1": "If you sign in using Google OAuth, we receive:",
+        "items": [
+          "Your Google email address",
+          "Your Google display name",
+          "Your Google profile picture URL"
+        ],
+        "p2": "We do not receive or store your Google password. Authentication is handled entirely by Google's identity services."
+      },
+      "payment": {
+        "heading": "2.3 Payment Data",
+        "p1": "Payment processing is handled entirely by Stripe, Inc. We do not collect, store, or process credit card numbers, bank account details, or other payment credentials. We store only:",
+        "items": [
+          "Stripe customer ID (a reference identifier)",
+          "Subscription status and plan type",
+          "Billing period dates"
+        ],
+        "p2": "Stripe's privacy policy applies to all payment data: <stripeLink>stripe.com/privacy</stripeLink>."
+      },
+      "usage": {
+        "heading": "2.4 Usage Data",
+        "p1": "We collect technical data necessary for operating the Service:",
+        "items": [
+          "API request logs (timestamps, endpoint paths, response codes)",
+          "IP addresses (for rate limiting and security)",
+          "Browser type and version (from HTTP headers)",
+          "Session identifiers"
+        ]
+      },
+      "support": {
+        "heading": "2.5 Support Data",
+        "p1": "When you contact support, we collect the information you provide in your ticket (name, email, description of the issue)."
+      }
+    },
+    "legalBasis": {
+      "heading": "3. Legal Basis for Processing",
+      "p1": "We process your personal data based on the following legal grounds under Article 6(1) GDPR:",
+      "table": {
+        "purpose": "Purpose",
+        "legalBasis": "Legal Basis",
+        "rows": [
+          { "purpose": "Account creation and management", "basis": "Performance of contract (Art. 6(1)(b))" },
+          { "purpose": "Service operation and API routing", "basis": "Performance of contract (Art. 6(1)(b))" },
+          { "purpose": "Payment processing", "basis": "Performance of contract (Art. 6(1)(b))" },
+          { "purpose": "Security, fraud prevention, abuse detection", "basis": "Legitimate interest (Art. 6(1)(f))" },
+          { "purpose": "Usage analytics and service improvement", "basis": "Legitimate interest (Art. 6(1)(f))" },
+          { "purpose": "Support ticket handling", "basis": "Performance of contract / Legitimate interest" },
+          { "purpose": "Legal compliance", "basis": "Legal obligation (Art. 6(1)(c))" }
+        ]
+      }
+    },
+    "processors": {
+      "heading": "4. Data Processors and Third Parties",
+      "p1": "We use the following third-party services that process personal data on our behalf:",
+      "table": {
+        "processor": "Processor",
+        "purpose": "Purpose",
+        "location": "Location",
+        "safeguards": "Safeguards",
+        "rows": [
+          { "processor": "Amazon Web Services (AWS)", "purpose": "Cloud infrastructure, data storage, compute", "location": "EU (Frankfurt, eu-central-1)", "safeguards": "EU data residency, AWS DPA" },
+          { "processor": "Stripe, Inc.", "purpose": "Payment processing", "location": "USA", "safeguards": "EU-US Data Privacy Framework, Standard Contractual Clauses" },
+          { "processor": "Google LLC", "purpose": "OAuth authentication", "location": "USA", "safeguards": "EU-US Data Privacy Framework, Standard Contractual Clauses" }
+        ]
+      },
+      "p2": "We have entered into Data Processing Agreements (DPAs) with all processors as required by Article 28 GDPR. Where data is transferred outside the EU/EEA, appropriate safeguards are in place as indicated above."
+    },
+    "retention": {
+      "heading": "5. Data Retention",
+      "items": [
+        "<strong>Account data:</strong> Retained for the duration of your account. Deleted within 30 days of account deletion.",
+        "<strong>API logs and usage data:</strong> Retained for 90 days, then automatically deleted.",
+        "<strong>Payment records:</strong> Retained for 10 years as required by German tax law (Abgabenordnung, \u00a7 147 AO).",
+        "<strong>Session data:</strong> Automatically expires after 7 days.",
+        "<strong>Support tickets:</strong> Retained for 2 years after resolution, then deleted."
+      ]
+    },
+    "cookies": {
+      "heading": "6. Cookies and Local Storage",
+      "p1": "The Service uses only <strong>strictly necessary</strong> session cookies and browser local storage to maintain your authentication state and application preferences. We do not use tracking cookies, advertising cookies, or third-party analytics services.",
+      "p2": "Data stored in your browser's local storage includes:",
+      "items": [
+        "Authentication tokens (for maintaining your session)",
+        "User preferences (selected region, UI state)",
+        "Organization context"
+      ],
+      "p3": "As these are strictly necessary for the operation of the Service, no consent is required under Article 5(3) of the ePrivacy Directive and \u00a7 25(2) TTDSG."
+    },
+    "rights": {
+      "heading": "7. Your Rights",
+      "p1": "Under the GDPR, you have the following rights regarding your personal data:",
+      "items": [
+        "<strong>Right of access (Art. 15):</strong> You may request a copy of the personal data we hold about you.",
+        "<strong>Right to rectification (Art. 16):</strong> You may request correction of inaccurate personal data.",
+        "<strong>Right to erasure (Art. 17):</strong> You may request deletion of your personal data (\"right to be forgotten\"), subject to legal retention obligations.",
+        "<strong>Right to restriction (Art. 18):</strong> You may request that we restrict the processing of your data in certain circumstances.",
+        "<strong>Right to data portability (Art. 20):</strong> You may request your data in a structured, commonly used, machine-readable format.",
+        "<strong>Right to object (Art. 21):</strong> You may object to processing based on legitimate interest at any time.",
+        "<strong>Right to withdraw consent (Art. 7(3)):</strong> Where processing is based on consent, you may withdraw it at any time without affecting prior processing."
+      ],
+      "p2": "To exercise any of these rights, please contact us at <emailLink>{{supportEmail}}</emailLink>. We will respond within one month as required by the GDPR."
+    },
+    "complaint": {
+      "heading": "8. Right to Lodge a Complaint",
+      "p1": "You have the right to lodge a complaint with a data protection supervisory authority. The competent authority for our operations is:",
+      "authority": "Berliner Beauftragte f\u00fcr Datenschutz und Informationsfreiheit<br/>Alt-Moabit 59-61, 10555 Berlin<br/>Website: <authorityLink>datenschutz-berlin.de</authorityLink>"
+    },
+    "security": {
+      "heading": "9. Data Security",
+      "p1": "We implement appropriate technical and organizational measures to protect your personal data, including:",
+      "items": [
+        "Encryption at rest and in transit (TLS 1.2+)",
+        "Password hashing using industry-standard algorithms",
+        "Two-factor authentication (2FA) option for all accounts",
+        "API key encryption for stored provider credentials",
+        "Access controls and role-based permissions",
+        "Regular security reviews"
+      ]
+    },
+    "children": {
+      "heading": "10. Children's Privacy",
+      "p1": "The Service is not intended for individuals under the age of 16. We do not knowingly collect personal data from children. If we become aware that a child has provided us with personal data, we will take steps to delete such data."
+    },
+    "changes": {
+      "heading": "11. Changes to This Policy",
+      "p1": "We may update this Privacy Policy from time to time. We will notify you of material changes by posting a notice in the Service or by email. Your continued use of the Service after such notification constitutes acceptance of the updated policy."
+    },
+    "contact": {
+      "heading": "12. Contact",
+      "p1": "For any questions about this Privacy Policy or our data practices, please contact:",
+      "address": "{{operatorName}}<br/>Email: <emailLink>{{supportEmail}}</emailLink><br/>Or use our <supportLink>support form</supportLink>."
+    }
+  },
+  "terms": {
+    "meta": {
+      "title": "Terms of Service | Outgate.ai",
+      "description": "Terms and conditions for using the Outgate.ai AI gateway platform."
+    },
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: March 3, 2026",
+    "intro": "These Terms of Service (\"Terms\") govern your access to and use of the Outgate AI platform, including the console at <consoleLink>console.outgate.ai</consoleLink>, the API gateway, and all related services (collectively, the \"Service\"), operated by {{operatorName}} (\"Operator\", \"we\", \"us\", \"our\").",
+    "introStrong": "<strong>By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, you must not use the Service.</strong>",
+    "section1": {
+      "heading": "1. Service Description",
+      "p1": "Outgate AI is an AI gateway platform that provides request routing, rate limiting, provider management, guardrail enforcement, and analytics for artificial intelligence API integrations. The Service is provided on an <strong>\"as is\" and \"as available\"</strong> basis."
+    },
+    "section2": {
+      "heading": "2. Eligibility and Account Registration",
+      "items": [
+        "You must be at least 16 years old and have the legal capacity to enter into these Terms.",
+        "You must provide accurate and complete registration information. You are responsible for maintaining the accuracy of this information.",
+        "You are solely responsible for maintaining the confidentiality of your account credentials, including passwords, API keys, and access tokens.",
+        "You are responsible for all activity that occurs under your account, whether or not authorized by you.",
+        "You must notify us immediately at <emailLink>{{supportEmail}}</emailLink> if you become aware of any unauthorized use of your account.",
+        "One natural person may maintain only one account. Shared accounts are not permitted."
+      ]
+    },
+    "section3": {
+      "heading": "3. Acceptable Use",
+      "p1": "You agree NOT to use the Service to:",
+      "items": [
+        "Violate any applicable law, regulation, or third-party right, including but not limited to EU and German law",
+        "Generate, transmit, store, or facilitate content that is illegal, harmful, threatening, abusive, harassing, defamatory, obscene, or otherwise objectionable",
+        "Generate content that promotes violence, discrimination, terrorism, or exploitation of minors",
+        "Circumvent, disable, or interfere with any rate limiting, usage quotas, security features, or access controls of the Service",
+        "Attempt to gain unauthorized access to any part of the Service, other accounts, computer systems, or networks connected to the Service",
+        "Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code of the Service",
+        "Use the Service for automated scraping, data mining, or systematic extraction of data beyond authorized API usage",
+        "Resell, sublicense, redistribute, or make the Service available to third parties without our prior written consent",
+        "Use the Service to develop a competing product or service",
+        "Transmit any viruses, worms, malware, or other harmful code through the Service",
+        "Impersonate any person or entity, or falsely state or misrepresent your affiliation with any person or entity",
+        "Use the Service to send unsolicited communications (spam) or for phishing purposes",
+        "Interfere with or disrupt the integrity or performance of the Service or the data contained therein",
+        "Use AI models through the Service to generate content that violates the usage policies of the underlying AI provider (e.g., OpenAI, Anthropic, Google)"
+      ],
+      "p2": "We reserve the right to investigate any suspected violation and to take appropriate action, including suspension or termination of your account, without prior notice."
+    },
+    "section4": {
+      "heading": "4. API Usage and Rate Limits",
+      "items": [
+        "API usage is subject to rate limits and quotas as defined by your subscription plan.",
+        "You must not attempt to circumvent rate limits through any means, including but not limited to creating multiple accounts, rotating API keys, or using distributed systems to exceed quota boundaries.",
+        "We reserve the right to throttle or suspend API access if usage patterns indicate abuse or pose a risk to platform stability.",
+        "The Service routes requests to third-party AI providers. We are not responsible for the content, accuracy, availability, or policies of those providers.",
+        "You are solely responsible for compliance with the terms of service and acceptable use policies of any AI provider accessed through the Service."
+      ]
+    },
+    "section5": {
+      "heading": "5. Subscription and Payment",
+      "items": [
+        "The Service offers free and paid subscription plans. Plan features and pricing are as displayed on the billing page at the time of purchase.",
+        "All payments are processed by Stripe, Inc. By subscribing to a paid plan, you agree to Stripe's <stripeLink>terms of service</stripeLink>.",
+        "Paid subscriptions are billed monthly in advance and automatically renew unless canceled.",
+        "You may cancel your subscription at any time through the customer portal. Cancellation takes effect at the end of the current billing period. <strong>No partial refunds are provided for unused time within a billing period.</strong>",
+        "We reserve the right to change pricing with 30 days' prior notice. Continued use after the effective date constitutes acceptance of the new pricing.",
+        "If payment fails, your account will enter a grace period. If payment is not resolved within 7 days, your account will be downgraded to the Free plan and access to paid features will be restricted.",
+        "All prices are in Euros (EUR) and are exclusive of applicable taxes unless stated otherwise."
+      ]
+    },
+    "section6": {
+      "heading": "6. Intellectual Property",
+      "items": [
+        "The Service, including its software, design, logos, documentation, and all related intellectual property, is and remains the exclusive property of the Operator.",
+        "These Terms do not grant you any right, title, or interest in the Service except for the limited right to use it in accordance with these Terms.",
+        "You retain ownership of all data you submit to or through the Service (\"Your Data\"). You grant us a limited license to process Your Data solely as necessary to provide the Service.",
+        "\"Outgate\", \"Outgate AI\", and associated logos are trademarks of the Operator. You may not use them without prior written consent."
+      ]
+    },
+    "section7": {
+      "heading": "7. Disclaimer of Warranties",
+      "preamble": "<strong>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:</strong>",
+      "items": [
+        "The Service is provided <strong>\"AS IS\"</strong> and <strong>\"AS AVAILABLE\"</strong>, without warranties of any kind, whether express, implied, or statutory.",
+        "We expressly disclaim all implied warranties, including but not limited to warranties of merchantability, fitness for a particular purpose, non-infringement, and accuracy.",
+        "We do not warrant that the Service will be uninterrupted, error-free, secure, or free of viruses or other harmful components.",
+        "We do not warrant the accuracy, completeness, or reliability of any content generated by AI models accessed through the Service.",
+        "We do not warrant the availability, performance, or compatibility of third-party AI providers accessed through the Service.",
+        "Any reliance you place on the Service or its output is strictly at your own risk."
+      ]
+    },
+    "section8": {
+      "heading": "8. Limitation of Liability",
+      "preamble": "<strong>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:</strong>",
+      "items": [
+        "The Operator shall not be liable for any <strong>indirect, incidental, special, consequential, or punitive damages</strong>, including but not limited to loss of profits, loss of data, loss of business opportunities, business interruption, or loss of goodwill, arising out of or in connection with the use of or inability to use the Service, regardless of the theory of liability (contract, tort, strict liability, or otherwise), even if we have been advised of the possibility of such damages.",
+        "The Operator's <strong>total aggregate liability</strong> for all claims arising out of or relating to these Terms or the Service shall not exceed the total fees paid by you to us in the <strong>twelve (12) months</strong> preceding the event giving rise to the claim, or <strong>EUR 100</strong>, whichever is greater.",
+        "<strong>German Law Carve-Out (mandatory under \u00a7 309 Nr. 7 BGB):</strong> The above limitations do not apply to liability for (a) damages resulting from injury to life, body, or health caused by a negligent or intentional breach of duty by the Operator (Verletzung von Leben, K\u00f6rper oder Gesundheit); (b) damages caused by intentional misconduct (Vorsatz) or gross negligence (grobe Fahrl\u00e4ssigkeit) of the Operator; (c) liability under the German Product Liability Act (Produkthaftungsgesetz); or (d) any other liability that cannot be excluded or limited under mandatory German law.",
+        "For breaches of essential contractual obligations (Kardinalpflichten) caused by ordinary negligence, liability is limited to foreseeable, contract-typical damages."
+      ]
+    },
+    "section9": {
+      "heading": "9. Indemnification",
+      "p1": "You agree to indemnify, defend, and hold harmless the Operator and his affiliates, agents, and service providers from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising out of or relating to:",
+      "items": [
+        "Your use of the Service or any activity under your account",
+        "Your violation of these Terms",
+        "Your violation of any applicable law or regulation",
+        "Your violation of any third-party right, including intellectual property, privacy, or publicity rights",
+        "Content generated through your use of AI models via the Service",
+        "Any claims by third parties arising from your use of the Service"
+      ]
+    },
+    "section10": {
+      "heading": "10. Data Protection",
+      "p1": "We process personal data in accordance with our <privacyLink>Privacy Policy</privacyLink> and applicable data protection laws, including the EU General Data Protection Regulation (GDPR) and the German Federal Data Protection Act (BDSG)."
+    },
+    "section11": {
+      "heading": "11. Termination",
+      "items": [
+        "You may terminate your account at any time by contacting us or deleting your account through the Service.",
+        "We may suspend or terminate your account at any time, with or without cause, with or without notice. Grounds for termination include but are not limited to: violation of these Terms, suspected fraudulent activity, extended periods of inactivity, or at our sole discretion.",
+        "Upon termination, your right to use the Service ceases immediately. We may delete your data in accordance with our Privacy Policy and applicable retention requirements.",
+        "Sections 6, 7, 8, 9, 13, and 14 survive termination of these Terms."
+      ]
+    },
+    "section12": {
+      "heading": "12. Third-Party Services",
+      "p1": "The Service integrates with and relies on third-party services, including but not limited to AWS, Stripe, Google, and various AI model providers. We are not responsible for:",
+      "items": [
+        "The availability, uptime, or performance of third-party services",
+        "Changes to third-party APIs, pricing, or terms of service",
+        "Data processing by third-party services beyond our control",
+        "Any loss or damage resulting from the unavailability or malfunction of third-party services"
+      ]
+    },
+    "section13": {
+      "heading": "13. Governing Law and Jurisdiction",
+      "items": [
+        "These Terms shall be governed by and construed in accordance with the laws of the Federal Republic of Germany, excluding the UN Convention on Contracts for the International Sale of Goods (CISG).",
+        "The exclusive place of jurisdiction for all disputes arising from or in connection with these Terms shall be Berlin, Germany, to the extent permitted by law.",
+        "If you are a consumer within the meaning of \u00a7 13 BGB, mandatory consumer protection provisions of your country of residence shall apply to the extent they provide greater protection."
+      ]
+    },
+    "section14": {
+      "heading": "14. Force Majeure",
+      "p1": "The Operator shall not be liable for any failure or delay in performing obligations under these Terms caused by events beyond reasonable control, including but not limited to: natural disasters, war, terrorism, pandemics, government actions, power failures, internet outages, cyberattacks, or failures of third-party services."
+    },
+    "section15": {
+      "heading": "15. Modifications to Terms",
+      "items": [
+        "We reserve the right to modify these Terms at any time. Material changes will be communicated via the Service or email with at least 14 days' notice.",
+        "Your continued use of the Service after the effective date of modified Terms constitutes acceptance of the changes.",
+        "If you do not agree to modified Terms, you must stop using the Service and may terminate your account."
+      ]
+    },
+    "section16": {
+      "heading": "16. Severability",
+      "p1": "If any provision of these Terms is held to be invalid, illegal, or unenforceable by a court of competent jurisdiction, the remaining provisions shall remain in full force and effect. The invalid provision shall be replaced by a valid provision that most closely reflects the original intent."
+    },
+    "section17": {
+      "heading": "17. Entire Agreement",
+      "p1": "These Terms, together with the <privacyLink>Privacy Policy</privacyLink>, constitute the entire agreement between you and the Operator regarding the use of the Service and supersede all prior agreements, understandings, and communications."
+    },
+    "section18": {
+      "heading": "18. Contact",
+      "p1": "For questions about these Terms, please contact:",
+      "address": "{{operatorName}}<br/>Email: <emailLink>{{supportEmail}}</emailLink><br/>Or use our <supportLink>support form</supportLink>."
+    }
+  },
+  "impressum": {
+    "meta": {
+      "title": "Impressum | Outgate.ai",
+      "description": "Legal notice (Impressum) for Outgate UG \u2014 company information as required by German law."
+    },
+    "title": "Impressum",
+    "subtitle": "Legal notice pursuant to Section 5 TMG",
+    "company": {
+      "heading": "Company",
+      "address": "Outgate UG (haftungsbeschr\u00e4nkt)<br/>Beuthstr. 2<br/>10117 Berlin<br/>Germany"
+    },
+    "representedBy": {
+      "heading": "Represented by",
+      "p1": "Gesch\u00e4ftsf\u00fchrer: Seyed Ali Khoramshahi"
+    },
+    "contact": {
+      "heading": "Contact",
+      "p1": "Email: <emailLink>support@outgate.ai</emailLink><br/>Website: <websiteLink>outgate.ai</websiteLink>"
+    },
+    "registration": {
+      "heading": "Registration",
+      "p1": "Registered at: Amtsgericht Charlottenburg, Berlin<br/>Registration number: <em>pending</em>"
+    },
+    "vatId": {
+      "heading": "VAT ID",
+      "p1": "VAT identification number pursuant to Section 27a of the German VAT Act (UStG):<br/><em>pending assignment</em>"
+    },
+    "responsibleForContent": {
+      "heading": "Responsible for content",
+      "address": "Seyed Ali Khoramshahi<br/>Beuthstr. 2<br/>10117 Berlin"
+    },
+    "disputeResolution": {
+      "heading": "Dispute resolution",
+      "p1": "The European Commission provides a platform for online dispute resolution (OS): <odrLink>https://ec.europa.eu/consumers/odr</odrLink>.",
+      "p2": "We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board."
+    }
+  },
+  "license": {
+    "title": "Pro License Agreement",
+    "subtitle": "Please review the license agreement for the Outgate AI Regional Stack.",
+    "backToConsole": "Back to Console",
+    "section1": {
+      "heading": "1. Grant of License",
+      "p1": "Subject to the terms of this Agreement and an active paid subscription to the Outgate AI Pro plan (\"Subscription\"), the Operator grants you a limited, non-exclusive, non-transferable, revocable license to download, install, and use the Outgate AI Regional Stack software (\"Software\") solely for your organization's internal business purposes."
+    },
+    "section2": {
+      "heading": "2. Restrictions",
+      "p1": "You agree that you shall not:",
+      "items": [
+        "Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code, algorithms, or underlying structure of the Software;",
+        "Redistribute, sublicense, sell, lease, lend, or otherwise make the Software available to any third party;",
+        "Create derivative works based on the Software or any portion thereof;",
+        "Remove, alter, or obscure any proprietary notices, labels, or marks on the Software;",
+        "Use the Software to build a competing product or service;",
+        "Copy or extract any components of the Software for use outside the licensed deployment."
+      ]
+    },
+    "section3": {
+      "heading": "3. Non-Compete",
+      "p1": "During the term of your Subscription and for twelve (12) months thereafter, you agree not to use knowledge gained from the Software to develop, market, or sell any product or service that directly competes with the Outgate AI platform."
+    },
+    "section4": {
+      "heading": "4. Intellectual Property",
+      "p1": "The Software, including all source code, object code, algorithms, configurations, documentation, and associated materials, is and remains the exclusive property of the Operator. This Agreement does not convey any ownership rights. All rights not expressly granted herein are reserved by the Operator."
+    },
+    "section5": {
+      "heading": "5. Subscription Requirement",
+      "p1": "Your right to use the Software is contingent upon maintaining an active Pro plan Subscription in good standing. Upon cancellation, expiration, or termination of your Subscription, your license to use the Software is immediately revoked, and you must cease all use and destroy all copies of the Software in your possession."
+    },
+    "section6": {
+      "heading": "6. Audit and Telemetry",
+      "p1": "The Software includes telemetry and heartbeat mechanisms that report operational status and usage metrics to the Operator. You agree not to disable, circumvent, or interfere with these mechanisms. The Operator reserves the right to audit your use of the Software to verify compliance with this Agreement."
+    },
+    "section7": {
+      "heading": "7. Termination",
+      "p1": "The Operator may terminate this Agreement immediately upon written notice if you breach any provision. Upon termination, all rights granted under this Agreement cease, and you must immediately stop using and destroy all copies of the Software. Sections 2, 3, 4, 8, and 9 survive termination."
+    },
+    "section8": {
+      "heading": "8. Limitation of Liability",
+      "p1": "TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE OPERATOR SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT OR THE USE OF THE SOFTWARE, REGARDLESS OF THE CAUSE OF ACTION OR THE THEORY OF LIABILITY. THE OPERATOR'S TOTAL LIABILITY SHALL NOT EXCEED THE FEES PAID BY YOU FOR THE SUBSCRIPTION IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM."
+    },
+    "section9": {
+      "heading": "9. Governing Law",
+      "p1": "This Agreement shall be governed by and construed in accordance with the laws of the jurisdiction in which the Operator is incorporated, without regard to conflict of law principles."
+    }
+  },
+  "support": {
+    "meta": {
+      "title": "Support | Outgate.ai",
+      "description": "Contact the Outgate.ai support team. Submit bug reports, feature requests, and billing inquiries."
+    },
+    "title": "Support",
+    "subtitle": "Need help? Fill out the form below and we'll get back to you as soon as possible.",
+    "form": {
+      "name": "Name *",
+      "namePlaceholder": "Your name",
+      "email": "Email *",
+      "emailPlaceholder": "your@email.com",
+      "organizationId": "Organization ID",
+      "plan": "Plan",
+      "subject": "Subject *",
+      "subjectPlaceholder": "Brief summary of your issue",
+      "category": "Category",
+      "priority": "Priority",
+      "description": "Description *",
+      "descriptionPlaceholder": "Please describe your issue in detail. Include steps to reproduce if reporting a bug.",
+      "submit": "Submit Ticket",
+      "submitting": "Submitting..."
+    },
+    "categories": {
+      "bug": "Bug Report",
+      "feature": "Feature Request",
+      "billing": "Billing",
+      "account": "Account",
+      "general": "General"
+    },
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "success": {
+      "title": "Ticket Submitted",
+      "message": "Your support ticket has been received. We will get back to you as soon as possible.",
+      "caseNumber": "Case Number",
+      "saveCaseNumber": "Please save this case number for your records."
+    },
+    "backToConsole": "Back to Console",
+    "errorFallback": "Failed to submit support ticket. Please try again."
+  },
+  "docsPage": {
+    "meta": {
+      "title": "Documentation | Outgate.ai",
+      "description": "Getting started guides, API reference, and configuration docs for the Outgate.ai AI gateway and guardrails platform."
+    },
+    "title": "Documentation",
+    "subtitle": "Outgate AI is a platform for routing AI traffic through a managed gateway with rate limiting, authentication, guardrail enforcement, and full observability.",
+    "toc": {
+      "title": "Contents",
+      "groups": {
+        "gateway": "AI Gateway",
+        "routing": "Routing",
+        "guardrails": "Guardrails",
+        "regions": "Regions",
+        "reference": "Reference"
+      },
+      "gettingStarted": "Getting Started",
+      "agentCli": "Agent and CLI Usage",
+      "apiUsage": "API Usage",
+      "gatewayFlow": "How the Gateway Works",
+      "routerTypes": "Router Types",
+      "failoverRouter": "Failover Router",
+      "weightedRouter": "Load Balancer (Weighted)",
+      "smartRouter": "Smart Router",
+      "combinedRouter": "Combined (Multi-Layer)",
+      "guardrailsFlow": "How Guardrails Work",
+      "riskCategories": "Risk Categories",
+      "anonymization": "Anonymization and Rehydration",
+      "policyConfig": "Policy Configuration",
+      "architecture": "Architecture",
+      "communication": "Communication Modes",
+      "stack": "Stack Components",
+      "guardrailLlm": "Guardrail LLM Configuration",
+      "dataResidency": "Data Residency",
+      "troubleshooting": "Troubleshooting"
+    },
+    "gettingStarted": {
+      "heading": "Getting Started",
+      "p1": "Set up the gateway in three steps: create a provider, configure authentication, and call the endpoint.",
+      "step1": {
+        "heading": "1. Create a provider",
+        "p1": "Add a provider in the console by selecting OpenAI, Anthropic, or entering a custom URL. Set rate limits and optionally attach a guardrail policy.",
+        "p2": "<strong>Forward Caller Auth</strong> \u2014 when enabled, the gateway passes the caller's <code>Authorization</code> header straight to the upstream provider. Each user supplies their own API key; no shared secret is stored on the gateway."
+      },
+      "step2": {
+        "heading": "2. Create a policy and API key (optional)",
+        "p1": "If Forward Caller Auth is off, create an access policy (full access or restricted to specific providers) and then create an API key linked to that policy. Copy the key \u2014 it will not be shown again.",
+        "p2": "Skip this step if the provider uses Forward Caller Auth \u2014 the caller's own key is used instead."
+      },
+      "step3": {
+        "heading": "3. Call the endpoint",
+        "p1": "Every provider gets a unique gateway endpoint. Copy it from the console and point your client at it."
+      }
+    }
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "nav": {
+    "logo": "og.ai",
+    "features": "Features",
+    "pricing": "Pricing",
+    "tools": "Tools",
+    "console": "Console"
+  },
+  "hero": {
+    "title": "outgate.ai",
+    "descriptionPrefix": "The AI gateway that handles",
+    "descriptionSuffix": "so you can focus on",
+    "descriptionHighlight": "building",
+    "rotatingWords": ["routing", "protection", "visibility"],
+    "secondary": "One gateway for OpenAI, Anthropic, Google, and any custom provider. Deploy managed or self-hosted.",
+    "trustBadges": ["Zero Vendor Lock-in", "Self-Host Ready", "Full Observability"],
+    "ctaGetStarted": "Get Started Free",
+    "ctaViewPricing": "View Pricing",
+    "ctaMeetFounder": "Meet with Founder"
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "steps": [
+      {
+        "title": "Protect",
+        "description": "Guardrails scan every request for PII, credentials, and prompt injections. Block or anonymize automatically."
+      },
+      {
+        "title": "Route",
+        "description": "Direct traffic with failover, load balancing, or AI-powered smart routing. One endpoint handles every provider."
+      },
+      {
+        "title": "Monitor",
+        "description": "Real-time logs, latency metrics, and usage tracking across all providers. Export for compliance."
+      }
+    ]
+  },
+  "features": {
+    "sectionTitle": "Security & Guardrails",
+    "items": [
+      {
+        "number": "01",
+        "title": "Policy Engine",
+        "description": "Create custom policies per provider. Configure each risk category independently. Block, anonymize, or allow. Attach different policies to different providers for granular control over how sensitive content is handled."
+      },
+      {
+        "number": "02",
+        "title": "Anonymization",
+        "description": "Sensitive text is tokenized before reaching the provider. On the way back, tokens are automatically rehydrated (replaced with the original text) so the client receives a seamless response. The upstream never sees raw personal data or credentials, and the caller never notices the swap."
+      },
+      {
+        "number": "03",
+        "title": "Tool Control",
+        "description": "Allow or block specific AI tools per provider. Whitelist only the tools you approve, or blacklist dangerous ones. Prevent unauthorized function calls before they execute."
+      },
+      {
+        "number": "04",
+        "title": "Audit & Alerts",
+        "description": "Every policy match is logged with the detected category, matched text, and action taken. Full audit trails available for compliance reporting."
+      }
+    ]
+  },
+  "guardrail": {
+    "heading": "Guardrail Pipeline",
+    "subheading": "See how sensitive content is detected, anonymized, processed, and restored automatically.",
+    "phases": ["Requests", "Detection", "Anonymization", "Processing", "Response", "Rehydration"],
+    "cardLabels": {
+      "message": "Message",
+      "env": ".env",
+      "prompt": "Prompt"
+    },
+    "categories": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "username": "Username",
+      "password": "Password",
+      "server": "Server",
+      "apiKey": "API Key",
+      "awsKey": "AWS Key"
+    },
+    "promptInjection": "Prompt Injection",
+    "blocked": "BLOCKED",
+    "sentToLlm": "Sent to LLM (anonymized)",
+    "llmResponse": "LLM Response",
+    "rehydratedBadge": "Rehydrated — returned to client",
+    "resume": "Resume",
+    "pause": "Pause"
+  },
+  "routing": {
+    "heading": "Multi-Model Routing",
+    "subheading": "Multiple routing strategies. High availability, traffic distribution, intelligent model selection or layer them all.",
+    "clientLabel": "Client",
+    "clientExamples": "Claude Code, Open WebUI, Codex, API",
+    "modes": {
+      "smart": {
+        "label": "Smart Router",
+        "tagline": "AI-Powered Selection",
+        "description": "Based on scoring criteria per model, the router evaluates every request in real time and sends it to the best match. Save cost, use the most capable models when they are really needed, and route to the most secure model when the prompt demands it.",
+        "routerLabel": "Smart Router"
+      },
+      "failover": {
+        "label": "Failover",
+        "tagline": "High Availability",
+        "description": "Requests go to the primary upstream. If it fails or times out, the gateway automatically falls through to the next provider in priority order.",
+        "routerLabel": "Failover Router"
+      },
+      "weighted": {
+        "label": "Load Balancer",
+        "tagline": "Traffic Distribution",
+        "description": "Traffic is distributed across upstreams according to weight percentages. Useful for gradual rollouts, cost balancing, or A/B testing models.",
+        "routerLabel": "Weighted Router"
+      },
+      "combined": {
+        "label": "Combined",
+        "tagline": "Multi-Layer Routing",
+        "description": "Build composite routing by chaining routers together. Each layer operates independently — smart selection, failover, or weighted — in any combination.",
+        "routerLabel": "Smart Router"
+      }
+    },
+    "upstreamMeta": {
+      "primary": "Primary",
+      "fallback1": "Fallback 1",
+      "fallback2": "Fallback 2"
+    },
+    "resume": "Resume",
+    "pause": "Pause"
+  },
+  "pricing": {
+    "title": "Plans & Pricing",
+    "popularBadge": "Popular",
+    "currency": "€",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "price": "0",
+        "period": "forever",
+        "description": "Get started with essential gateway features",
+        "cta": "Get Started Free"
+      },
+      "plus": {
+        "name": "Plus",
+        "price": "49",
+        "period": "/mo",
+        "description": "Content security for growing teams",
+        "cta": "Start Plus"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "249",
+        "period": "/mo",
+        "description": "Full platform with self hosted regions",
+        "cta": "Start Pro",
+        "footnote": "* Self-managed regions"
+      }
+    },
+    "features": {
+      "upTo5Providers": "Up to 5 providers",
+      "rate100hr1kDay": "1K req/hr, 10K req/day",
+      "analyticsLogs": "Analytics & logs",
+      "apiKeyMgmt": "API key management",
+      "failoverLbRouters": "Failover & load balancer routers",
+      "accessPolicies": "Access policies",
+      "smartRouter": "Smart router",
+      "guardrails": "Guardrails",
+      "selfManaged": "Self-managed regions (on-prem or private cloud)",
+      "upTo20Providers": "Up to 20 providers",
+      "rate100khr1mDay": "100K req/hr, 1M req/day",
+      "unlimitedProviders": "Unlimited providers*",
+      "unlimitedRateLimits": "Unlimited rate limits*"
+    }
+  },
+  "dashboard": {
+    "title": "Full Observability",
+    "description": "Complete visibility into your AI traffic. Per-provider metrics, latency breakdowns, and guardrail audit logs built in.",
+    "slides": {
+      "dashboard": "Outgate.ai Dashboard showing real-time AI gateway analytics",
+      "metrics": "Organization-wide metrics with traffic overview and latency breakdown",
+      "monitoring": "Smart router monitoring with upstream breakdown and guardrail metrics"
+    },
+    "slideLabel": "Slide {{number}}",
+    "resume": "Resume",
+    "pause": "Pause"
+  },
+  "valueCards": {
+    "useAnyLlm": {
+      "title": "Use Any LLM",
+      "alt": "Use Any LLM",
+      "description": "Connect OpenAI, Anthropic, Google, and custom providers through one gateway. Automatic model discovery, unified endpoints, and per provider rate limits."
+    },
+    "ownYourData": {
+      "title": "Own Your Data",
+      "alt": "Own Your Data",
+      "description": "PII detection and anonymization before data reaches any provider. Response rehydration returns original content. Deploy on premise for full sovereignty."
+    },
+    "enforcePolicies": {
+      "title": "Enforce Policies",
+      "alt": "Enforce Policies",
+      "description": "Access policies scope API keys to specific providers. Guardrail policies block or anonymize by content category. Real time alerts on every policy violation."
+    }
+  },
+  "email": {
+    "founderName": "Ali Khoramshahi",
+    "founderTitle": "Founder",
+    "logoText": "outgate.ai",
+    "tagline": "AI Gateway & Guardrails Platform",
+    "website": "Website",
+    "console": "Console",
+    "docs": "Docs",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "impressum": "Impressum",
+    "companyName": "Outgate UG (haftungsbeschr\u00e4nkt)",
+    "managingDirector": "Managing Director: Seyed Ali Khoramshahi",
+    "companyAddress": "Beuthstr. 2, 10117 Berlin, Germany",
+    "copyright": "\u00a9 2026 Outgate UG (haftungsbeschr\u00e4nkt)"
+  },
+  "footer": {
+    "product": "Product",
+    "features": "Features",
+    "pricing": "Pricing",
+    "console": "Console",
+    "resources": "Resources",
+    "documentation": "Documentation",
+    "support": "Support",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "impressum": "Impressum",
+    "company": "Company",
+    "contact": "Contact",
+    "meetFounder": "Meet with Founder",
+    "copyright": "© 2026 Outgate.ai",
+    "tagline": "AI Gateway & Guardrails Platform"
+  },
+  "language": {
+    "en": "EN",
+    "de": "DE"
+  },
+  "integration": {
+    "title": "Instant Integration",
+    "subtitle": "Route {{tool}} through Outgate with a single command. Guardrails, logging, and cost tracking out of the box.",
+    "downloadLink": "Download the CLI tool to get started."
+  },
+  "tools": {
+    "title": "Download CLI Tool",
+    "orDownload": "or download directly",
+    "downloadBtn": "Download CLI Tool for {{os}} {{archLabel}}",
+    "copied": "Copied!",
+    "copy": "Copy",
+    "quickStart": "Quick Start",
+    "step1": "Authenticate via browser",
+    "step2": "Run {{tool}} through Outgate",
+    "step3": "View metrics and cost",
+    "ideTitle": "IDE Integration",
+    "ideSubtitle": "Use {{tool}} with VS Code, Cursor, or any tool that supports API base URL override.",
+    "macOS": "macOS",
+    "linux": "Linux",
+    "appleSilicon": "Apple Silicon",
+    "intel": "Intel"
+  }
+}

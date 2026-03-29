@@ -1,0 +1,262 @@
+{
+  "nav": {
+    "logo": "og.ai",
+    "features": "Funktionen",
+    "pricing": "Preise",
+    "tools": "Tools",
+    "console": "Konsole"
+  },
+  "hero": {
+    "title": "outgate.ai",
+    "descriptionPrefix": "Das AI Gateway, das",
+    "descriptionSuffix": "übernimmt, damit Sie sich auf das",
+    "descriptionHighlight": "Entwickeln",
+    "rotatingWords": ["Routing", "Schutz", "Transparenz"],
+    "secondary": "Ein Gateway für OpenAI, Anthropic, Google und jeden beliebigen Provider. Managed oder Self-Hosted.",
+    "trustBadges": ["Kein Vendor Lock-in", "Self-Hosting möglich", "Volle Observability"],
+    "ctaGetStarted": "Kostenlos starten",
+    "ctaViewPricing": "Preise ansehen",
+    "ctaMeetFounder": "Termin mit Gründer"
+  },
+  "howItWorks": {
+    "title": "So funktioniert's",
+    "steps": [
+      {
+        "title": "Schützen",
+        "description": "Guardrails prüfen jede Anfrage auf PII, Zugangsdaten und Prompt Injections. Automatisch blockieren oder anonymisieren."
+      },
+      {
+        "title": "Routen",
+        "description": "Traffic per Failover, Load Balancing oder KI-gestütztem Smart Routing weiterleiten. Ein Endpoint für alle Provider."
+      },
+      {
+        "title": "Überwachen",
+        "description": "Echtzeit-Logs, Latenz-Metriken und Nutzungstracking über alle Provider hinweg. Export für Compliance-Anforderungen."
+      }
+    ]
+  },
+  "features": {
+    "sectionTitle": "Sicherheit & Guardrails",
+    "items": [
+      {
+        "number": "01",
+        "title": "Policy Engine",
+        "description": "Erstellen Sie individuelle Policies pro Provider. Konfigurieren Sie jede Risikokategorie unabhängig. Blockieren, anonymisieren oder zulassen. Weisen Sie verschiedenen Providern unterschiedliche Policies zu, um granular zu steuern, wie sensible Inhalte behandelt werden."
+      },
+      {
+        "number": "02",
+        "title": "Anonymisierung",
+        "description": "Sensible Texte werden tokenisiert, bevor sie den Provider erreichen. Auf dem Rückweg werden die Token automatisch rehydriert (durch den Originaltext ersetzt), sodass der Client eine nahtlose Antwort erhält. Der Upstream sieht nie personenbezogene Daten oder Zugangsdaten, und der Aufrufer bemerkt den Austausch nicht."
+      },
+      {
+        "number": "03",
+        "title": "Tool-Kontrolle",
+        "description": "Erlauben oder blockieren Sie bestimmte KI-Tools pro Provider. Geben Sie nur die Tools frei, die Sie genehmigen, oder sperren Sie gefährliche. Verhindern Sie unautorisierte Funktionsaufrufe, bevor sie ausgeführt werden."
+      },
+      {
+        "number": "04",
+        "title": "Audit & Alerts",
+        "description": "Jeder Policy-Treffer wird mit erkannter Kategorie, betroffenem Text und durchgeführter Aktion protokolliert. Vollständige Audit-Trails für Compliance-Berichte verfügbar."
+      }
+    ]
+  },
+  "guardrail": {
+    "heading": "Guardrail Pipeline",
+    "subheading": "Sehen Sie, wie sensible Inhalte automatisch erkannt, anonymisiert, verarbeitet und wiederhergestellt werden.",
+    "phases": ["Anfragen", "Erkennung", "Anonymisierung", "Verarbeitung", "Antwort", "Rehydrierung"],
+    "cardLabels": {
+      "message": "Nachricht",
+      "env": ".env",
+      "prompt": "Prompt"
+    },
+    "categories": {
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "username": "Benutzername",
+      "password": "Passwort",
+      "server": "Server",
+      "apiKey": "API Key",
+      "awsKey": "AWS Key"
+    },
+    "promptInjection": "Prompt Injection",
+    "blocked": "BLOCKIERT",
+    "sentToLlm": "An LLM gesendet (anonymisiert)",
+    "llmResponse": "LLM-Antwort",
+    "rehydratedBadge": "Rehydriert, an Client zurückgegeben",
+    "resume": "Fortsetzen",
+    "pause": "Pause"
+  },
+  "routing": {
+    "heading": "Multi-Model Routing",
+    "subheading": "Mehrere Routing-Strategien. Hochverfügbarkeit, Traffic-Verteilung, intelligente Modellauswahl oder alles kombiniert.",
+    "clientLabel": "Client",
+    "clientExamples": "Claude Code, Open WebUI, Codex, API",
+    "modes": {
+      "smart": {
+        "label": "Smart Router",
+        "tagline": "KI-gestützte Auswahl",
+        "description": "Anhand von Scoring-Kriterien pro Modell bewertet der Router jede Anfrage in Echtzeit und leitet sie an den besten Treffer weiter. Kosten sparen, leistungsstarke Modelle nur einsetzen, wenn sie wirklich benötigt werden, und bei sensiblen Prompts zum sichersten Modell routen.",
+        "routerLabel": "Smart Router"
+      },
+      "failover": {
+        "label": "Failover",
+        "tagline": "Hochverfügbarkeit",
+        "description": "Anfragen gehen an den primären Upstream. Fällt dieser aus oder antwortet nicht rechtzeitig, leitet das Gateway automatisch an den nächsten Provider in der Prioritätsreihenfolge weiter.",
+        "routerLabel": "Failover Router"
+      },
+      "weighted": {
+        "label": "Load Balancer",
+        "tagline": "Traffic-Verteilung",
+        "description": "Traffic wird nach Gewichtung auf die Upstreams verteilt. Ideal für schrittweise Rollouts, Kostenverteilung oder A/B-Tests von Modellen.",
+        "routerLabel": "Weighted Router"
+      },
+      "combined": {
+        "label": "Kombiniert",
+        "tagline": "Mehrschichtiges Routing",
+        "description": "Erstellen Sie zusammengesetztes Routing, indem Sie Router verketten. Jede Schicht arbeitet unabhängig: Smart-Auswahl, Failover oder Gewichtung, in beliebiger Kombination.",
+        "routerLabel": "Smart Router"
+      }
+    },
+    "upstreamMeta": {
+      "primary": "Primär",
+      "fallback1": "Fallback 1",
+      "fallback2": "Fallback 2"
+    },
+    "resume": "Fortsetzen",
+    "pause": "Pause"
+  },
+  "pricing": {
+    "title": "Pläne & Preise",
+    "popularBadge": "Beliebt",
+    "currency": "€",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "price": "0",
+        "period": "dauerhaft",
+        "description": "Starten Sie mit den wichtigsten Gateway-Funktionen",
+        "cta": "Kostenlos starten"
+      },
+      "plus": {
+        "name": "Plus",
+        "price": "49",
+        "period": "/Monat",
+        "description": "Inhaltssicherheit für wachsende Teams",
+        "cta": "Plus starten"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "249",
+        "period": "/Monat",
+        "description": "Komplette Plattform mit Self-Hosted Regionen",
+        "cta": "Pro starten",
+        "footnote": "* Self-Managed Regionen"
+      }
+    },
+    "features": {
+      "upTo5Providers": "Bis zu 5 Provider",
+      "rate100hr1kDay": "1K Req/Std, 10K Req/Tag",
+      "analyticsLogs": "Analytics & Logs",
+      "apiKeyMgmt": "API-Key-Verwaltung",
+      "failoverLbRouters": "Failover- & Load-Balancer-Router",
+      "accessPolicies": "Zugriffsrichtlinien",
+      "smartRouter": "Smart Router",
+      "guardrails": "Guardrails",
+      "selfManaged": "Self-Managed Regionen (On-Prem oder Private Cloud)",
+      "upTo20Providers": "Bis zu 20 Provider",
+      "rate100khr1mDay": "100K Req/Std, 1M Req/Tag",
+      "unlimitedProviders": "Unbegrenzte Provider*",
+      "unlimitedRateLimits": "Unbegrenzte Rate Limits*"
+    }
+  },
+  "dashboard": {
+    "title": "Volle Observability",
+    "description": "Komplette Transparenz über Ihren KI-Traffic. Provider-Metriken, Latenz-Aufschlüsselungen und Guardrail-Audit-Logs, alles integriert.",
+    "slides": {
+      "dashboard": "Outgate.ai Dashboard mit Echtzeit-Analytics für das KI-Gateway",
+      "metrics": "Organisationsweite Metriken mit Traffic-Übersicht und Latenz-Aufschlüsselung",
+      "monitoring": "Smart-Router-Monitoring mit Upstream-Aufschlüsselung und Guardrail-Metriken"
+    },
+    "slideLabel": "Folie {{number}}",
+    "resume": "Fortsetzen",
+    "pause": "Pause"
+  },
+  "valueCards": {
+    "useAnyLlm": {
+      "title": "Jedes LLM nutzen",
+      "alt": "Jedes LLM nutzen",
+      "description": "Verbinden Sie OpenAI, Anthropic, Google und eigene Provider über ein Gateway. Automatische Modellerkennung, einheitliche Endpoints und Rate Limits pro Provider."
+    },
+    "ownYourData": {
+      "title": "Datenhoheit behalten",
+      "alt": "Datenhoheit behalten",
+      "description": "PII-Erkennung und Anonymisierung, bevor Daten einen Provider erreichen. Rehydrierung stellt Originalinhalte in der Antwort wieder her. On-Premise deployen für volle Datensouveränität."
+    },
+    "enforcePolicies": {
+      "title": "Policies durchsetzen",
+      "alt": "Policies durchsetzen",
+      "description": "Zugriffsrichtlinien beschränken API Keys auf bestimmte Provider. Guardrail-Policies blockieren oder anonymisieren nach Inhaltskategorie. Echtzeit-Alerts bei jedem Regelverstoß."
+    }
+  },
+  "email": {
+    "founderName": "Ali Khoramshahi",
+    "founderTitle": "Gründer",
+    "logoText": "outgate.ai",
+    "tagline": "KI-Gateway & Guardrails-Plattform",
+    "website": "Website",
+    "console": "Konsole",
+    "docs": "Docs",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "impressum": "Impressum",
+    "companyName": "Outgate UG (haftungsbeschr\u00e4nkt)",
+    "managingDirector": "Gesch\u00e4ftsf\u00fchrer: Seyed Ali Khoramshahi",
+    "companyAddress": "Beuthstr. 2, 10117 Berlin, Germany",
+    "copyright": "\u00a9 2026 Outgate UG (haftungsbeschr\u00e4nkt)"
+  },
+  "footer": {
+    "product": "Produkt",
+    "features": "Funktionen",
+    "pricing": "Preise",
+    "console": "Konsole",
+    "resources": "Ressourcen",
+    "documentation": "Dokumentation",
+    "support": "Support",
+    "legal": "Rechtliches",
+    "privacyPolicy": "Datenschutz",
+    "termsOfService": "Nutzungsbedingungen",
+    "impressum": "Impressum",
+    "company": "Unternehmen",
+    "contact": "Kontakt",
+    "meetFounder": "Termin mit Gründer",
+    "copyright": "© 2026 Outgate.ai",
+    "tagline": "KI-Gateway & Guardrails-Plattform"
+  },
+  "language": {
+    "en": "EN",
+    "de": "DE"
+  },
+  "integration": {
+    "title": "Sofortige Integration",
+    "subtitle": "{{tool}} mit einem einzigen Befehl uber Outgate leiten. Guardrails, Protokollierung und Kostenverfolgung sofort einsatzbereit.",
+    "downloadLink": "CLI-Tool herunterladen, um loszulegen."
+  },
+  "tools": {
+    "title": "CLI-Tool herunterladen",
+    "orDownload": "oder direkt herunterladen",
+    "downloadBtn": "CLI-Tool fur {{os}} {{archLabel}} herunterladen",
+    "copied": "Kopiert!",
+    "copy": "Kopieren",
+    "quickStart": "Schnellstart",
+    "step1": "Im Browser anmelden",
+    "step2": "{{tool}} uber Outgate leiten",
+    "step3": "Metriken und Kosten anzeigen",
+    "ideTitle": "IDE-Integration",
+    "ideSubtitle": "{{tool}} mit VS Code, Cursor oder einem anderen Tool verwenden, das die API-Basis-URL unterstutzt.",
+    "macOS": "macOS",
+    "linux": "Linux",
+    "appleSilicon": "Apple Silicon",
+    "intel": "Intel"
+  }
+}

@@ -1,0 +1,73 @@
+name: Deploy Landing
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'terraform/**'
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_REGION: eu-central-1
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_wrapper: false
+
+      - name: Get terraform outputs
+        id: tf
+        working-directory: terraform
+        run: |
+          terraform init -input=false
+          echo "s3_bucket=$(terraform output -raw s3_bucket)" >> "$GITHUB_OUTPUT"
+          echo "distribution_id=$(terraform output -raw cloudfront_distribution_id)" >> "$GITHUB_OUTPUT"
+          echo "cloudfront_domain=$(terraform output -raw cloudfront_domain)" >> "$GITHUB_OUTPUT"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          VITE_CONSOLE_URL: ${{ secrets.CONSOLE_URL }}
+          VITE_APP_NAME: Outgate.ai
+
+      - name: Prerender for bots
+        run: npm run prerender
+
+      - name: Deploy to S3
+        run: aws s3 sync dist/ "s3://${{ steps.tf.outputs.s3_bucket }}" --delete
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "${{ steps.tf.outputs.distribution_id }}" \
+            --paths "/*"
+
+      - name: Summary
+        run: |
+          echo "## Deployment Complete" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "**CloudFront CNAME:** \`${{ steps.tf.outputs.cloudfront_domain }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Point your DNS CNAME record to the above domain." >> "$GITHUB_STEP_SUMMARY"

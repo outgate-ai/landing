@@ -1,0 +1,550 @@
+{
+  "privacy": {
+    "meta": {
+      "title": "Datenschutzerklärung | Outgate.ai",
+      "description": "Wie Outgate.ai Ihre personenbezogenen Daten erhebt, verwendet und schützt. DSGVO-konform."
+    },
+    "title": "Datenschutzerklärung",
+    "lastUpdated": "Zuletzt aktualisiert: 3. März 2026",
+    "intro": "Diese Datenschutzerklärung erläutert, wie Outgate AI („wir“, „uns“, „unser“), betrieben von {{operatorName}}, Ihre personenbezogenen Daten erhebt, verwendet und schützt, wenn Sie unsere AI-Gateway-Plattform unter <consoleLink>console.outgate.ai</consoleLink> und zugehörige Dienste (zusammenfassend der „Dienst“) nutzen. Wir verpflichten uns, Ihre Privatsphäre gemäß der Datenschutz-Grundverordnung (DSGVO) der EU, dem Bundesdatenschutzgesetz (BDSG) und dem Telekommunikation-Telemedien-Datenschutz-Gesetz (TTDSG) zu schützen.",
+    "controller": {
+      "heading": "1. Verantwortlicher",
+      "p1": "Verantwortlicher für die Verarbeitung Ihrer personenbezogenen Daten ist:",
+      "address": "{{operatorName}}<br/>Berlin, Deutschland<br/>E-Mail: <emailLink>{{supportEmail}}</emailLink>"
+    },
+    "dataWeCollect": {
+      "heading": "2. Daten, die wir erheben",
+      "account": {
+        "heading": "2.1 Kontodaten",
+        "p1": "Bei der Registrierung für den Dienst oder bei dessen Nutzung erheben wir:",
+        "items": [
+          "E-Mail-Adresse",
+          "Vollständiger Name",
+          "Passwort (als kryptografischer Hash gespeichert, niemals im Klartext)",
+          "Organisationsname und -zugehörigkeit",
+          "Benutzerrolle und Berechtigungen"
+        ]
+      },
+      "auth": {
+        "heading": "2.2 Authentifizierungsdaten",
+        "p1": "Wenn Sie sich über Google OAuth anmelden, erhalten wir:",
+        "items": [
+          "Ihre Google-E-Mail-Adresse",
+          "Ihren Google-Anzeigenamen",
+          "Ihre Google-Profilbild-URL"
+        ],
+        "p2": "Wir erhalten oder speichern Ihr Google-Passwort nicht. Die Authentifizierung wird vollständig über die Identitätsdienste von Google abgewickelt."
+      },
+      "payment": {
+        "heading": "2.3 Zahlungsdaten",
+        "p1": "Die Zahlungsabwicklung erfolgt vollständig über Stripe, Inc. Wir erheben, speichern oder verarbeiten keine Kreditkartennummern, Bankverbindungen oder sonstige Zahlungsdaten. Wir speichern lediglich:",
+        "items": [
+          "Stripe-Kunden-ID (eine Referenzkennung)",
+          "Abonnementstatus und Tarifart",
+          "Abrechnungszeiträume"
+        ],
+        "p2": "Für alle Zahlungsdaten gilt die Datenschutzerklärung von Stripe: <stripeLink>stripe.com/privacy</stripeLink>."
+      },
+      "usage": {
+        "heading": "2.4 Nutzungsdaten",
+        "p1": "Wir erheben technische Daten, die für den Betrieb des Dienstes erforderlich sind:",
+        "items": [
+          "API-Anforderungsprotokolle (Zeitstempel, Endpoint-Pfade, Antwortcodes)",
+          "IP-Adressen (zur Ratenbegrenzung und Sicherheit)",
+          "Browsertyp und -version (aus HTTP-Headern)",
+          "Sitzungskennungen"
+        ]
+      },
+      "support": {
+        "heading": "2.5 Supportdaten",
+        "p1": "Wenn Sie den Support kontaktieren, erheben wir die von Ihnen in Ihrem Ticket bereitgestellten Informationen (Name, E-Mail, Beschreibung des Problems)."
+      }
+    },
+    "legalBasis": {
+      "heading": "3. Rechtsgrundlage der Verarbeitung",
+      "p1": "Wir verarbeiten Ihre personenbezogenen Daten auf folgenden Rechtsgrundlagen gemäß Art. 6 Abs. 1 DSGVO:",
+      "table": {
+        "purpose": "Zweck",
+        "legalBasis": "Rechtsgrundlage",
+        "rows": [
+          {
+            "purpose": "Kontoerstellung und -verwaltung",
+            "basis": "Vertragserfüllung (Art. 6 Abs. 1 lit. b)"
+          },
+          {
+            "purpose": "Betrieb des Dienstes und API-Routing",
+            "basis": "Vertragserfüllung (Art. 6 Abs. 1 lit. b)"
+          },
+          {
+            "purpose": "Zahlungsabwicklung",
+            "basis": "Vertragserfüllung (Art. 6 Abs. 1 lit. b)"
+          },
+          {
+            "purpose": "Sicherheit, Betrugsprävention, Missbrauchserkennung",
+            "basis": "Berechtigtes Interesse (Art. 6 Abs. 1 lit. f)"
+          },
+          {
+            "purpose": "Nutzungsanalyse und Dienstverbesserung",
+            "basis": "Berechtigtes Interesse (Art. 6 Abs. 1 lit. f)"
+          },
+          {
+            "purpose": "Bearbeitung von Supportanfragen",
+            "basis": "Vertragserfüllung / Berechtigtes Interesse"
+          },
+          {
+            "purpose": "Erfüllung gesetzlicher Pflichten",
+            "basis": "Rechtliche Verpflichtung (Art. 6 Abs. 1 lit. c)"
+          }
+        ]
+      }
+    },
+    "processors": {
+      "heading": "4. Auftragsverarbeiter und Dritte",
+      "p1": "Wir nutzen folgende Drittanbieterdienste, die personenbezogene Daten in unserem Auftrag verarbeiten:",
+      "table": {
+        "processor": "Auftragsverarbeiter",
+        "purpose": "Zweck",
+        "location": "Standort",
+        "safeguards": "Schutzmaßnahmen",
+        "rows": [
+          {
+            "processor": "Amazon Web Services (AWS)",
+            "purpose": "Cloud-Infrastruktur, Datenspeicherung, Rechenleistung",
+            "location": "EU (Frankfurt, eu-central-1)",
+            "safeguards": "Datenhaltung in der EU, AWS-DPA"
+          },
+          {
+            "processor": "Stripe, Inc.",
+            "purpose": "Zahlungsabwicklung",
+            "location": "USA",
+            "safeguards": "EU-US Data Privacy Framework, Standardvertragsklauseln"
+          },
+          {
+            "processor": "Google LLC",
+            "purpose": "OAuth-Authentifizierung",
+            "location": "USA",
+            "safeguards": "EU-US Data Privacy Framework, Standardvertragsklauseln"
+          }
+        ]
+      },
+      "p2": "Wir haben mit allen Auftragsverarbeitern Auftragsverarbeitungsverträge (AVV) gemäß Art. 28 DSGVO abgeschlossen. Soweit Daten außerhalb der EU/des EWR übermittelt werden, bestehen die oben genannten angemessenen Schutzmaßnahmen."
+    },
+    "retention": {
+      "heading": "5. Speicherdauer",
+      "items": [
+        "<strong>Kontodaten:</strong> Werden für die Dauer Ihres Kontos gespeichert. Löschung innerhalb von 30 Tagen nach Kontolöschung.",
+        "<strong>API-Protokolle und Nutzungsdaten:</strong> Werden 90 Tage aufbewahrt und anschließend automatisch gelöscht.",
+        "<strong>Zahlungsunterlagen:</strong> Werden 10 Jahre aufbewahrt, wie nach deutschem Steuerrecht (Abgabenordnung, § 147 AO) vorgeschrieben.",
+        "<strong>Sitzungsdaten:</strong> Laufen automatisch nach 7 Tagen ab.",
+        "<strong>Supportanfragen:</strong> Werden 2 Jahre nach Abschluss aufbewahrt und anschließend gelöscht."
+      ]
+    },
+    "cookies": {
+      "heading": "6. Cookies und lokaler Speicher",
+      "p1": "Der Dienst verwendet ausschließlich <strong>technisch notwendige</strong> Sitzungs-Cookies und lokalen Browserspeicher, um Ihren Authentifizierungsstatus und Ihre Anwendungseinstellungen aufrechtzuerhalten. Wir verwenden keine Tracking-Cookies, Werbe-Cookies oder Analysedienste von Drittanbietern.",
+      "p2": "Im lokalen Speicher Ihres Browsers werden folgende Daten gespeichert:",
+      "items": [
+        "Authentifizierungs-Token (zur Aufrechterhaltung Ihrer Sitzung)",
+        "Benutzereinstellungen (ausgewählte Region, UI-Status)",
+        "Organisationskontext"
+      ],
+      "p3": "Da diese für den Betrieb des Dienstes zwingend erforderlich sind, ist gemäß Art. 5 Abs. 3 der ePrivacy-Richtlinie und § 25 Abs. 2 TTDSG keine Einwilligung erforderlich."
+    },
+    "rights": {
+      "heading": "7. Ihre Rechte",
+      "p1": "Gemäß der DSGVO stehen Ihnen folgende Rechte in Bezug auf Ihre personenbezogenen Daten zu:",
+      "items": [
+        "<strong>Auskunftsrecht (Art. 15):</strong> Sie können eine Kopie der von uns über Sie gespeicherten personenbezogenen Daten anfordern.",
+        "<strong>Recht auf Berichtigung (Art. 16):</strong> Sie können die Berichtigung unrichtiger personenbezogener Daten verlangen.",
+        "<strong>Recht auf Löschung (Art. 17):</strong> Sie können die Löschung Ihrer personenbezogenen Daten verlangen („Recht auf Vergessenwerden“), vorbehaltlich gesetzlicher Aufbewahrungspflichten.",
+        "<strong>Recht auf Einschränkung (Art. 18):</strong> Sie können verlangen, dass wir die Verarbeitung Ihrer Daten unter bestimmten Umständen einschränken.",
+        "<strong>Recht auf Datenübertragbarkeit (Art. 20):</strong> Sie können Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format anfordern.",
+        "<strong>Widerspruchsrecht (Art. 21):</strong> Sie können der Verarbeitung auf Grundlage berechtigter Interessen jederzeit widersprechen.",
+        "<strong>Recht auf Widerruf der Einwilligung (Art. 7 Abs. 3):</strong> Soweit die Verarbeitung auf einer Einwilligung beruht, können Sie diese jederzeit widerrufen, ohne dass die Rechtmäßigkeit der zuvor erfolgten Verarbeitung berührt wird."
+      ],
+      "p2": "Um eines dieser Rechte auszuüben, kontaktieren Sie uns bitte unter <emailLink>{{supportEmail}}</emailLink>. Wir werden innerhalb eines Monats antworten, wie von der DSGVO vorgeschrieben."
+    },
+    "complaint": {
+      "heading": "8. Recht auf Beschwerde",
+      "p1": "Sie haben das Recht, Beschwerde bei einer Datenschutzaufsichtsbehörde einzulegen. Die für uns zuständige Aufsichtsbehörde ist:",
+      "authority": "Berliner Beauftragte für Datenschutz und Informationsfreiheit<br/>Alt-Moabit 59–61, 10555 Berlin<br/>Website: <authorityLink>datenschutz-berlin.de</authorityLink>"
+    },
+    "security": {
+      "heading": "9. Datensicherheit",
+      "p1": "Wir setzen angemessene technische und organisatorische Maßnahmen zum Schutz Ihrer personenbezogenen Daten um, darunter:",
+      "items": [
+        "Verschlüsselung im Ruhezustand und bei der Übertragung (TLS 1.2+)",
+        "Passwort-Hashing mit branchenüblichen Algorithmen",
+        "Zwei-Faktor-Authentifizierung (2FA) als Option für alle Konten",
+        "API-Key-Verschlüsselung für gespeicherte Provider-Zugangsdaten",
+        "Zugriffskontrollen und rollenbasierte Berechtigungen",
+        "Regelmäßige Sicherheitsüberprüfungen"
+      ]
+    },
+    "children": {
+      "heading": "10. Datenschutz für Minderjährige",
+      "p1": "Der Dienst ist nicht für Personen unter 16 Jahren bestimmt. Wir erheben wissentlich keine personenbezogenen Daten von Kindern. Sollten wir erfahren, dass ein Kind uns personenbezogene Daten bereitgestellt hat, werden wir Maßnahmen ergreifen, um diese Daten zu löschen."
+    },
+    "changes": {
+      "heading": "11. Änderungen dieser Erklärung",
+      "p1": "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Über wesentliche Änderungen werden wir Sie durch einen Hinweis im Dienst oder per E-Mail informieren. Ihre fortgesetzte Nutzung des Dienstes nach einer solchen Benachrichtigung gilt als Zustimmung zur aktualisierten Erklärung."
+    },
+    "contact": {
+      "heading": "12. Kontakt",
+      "p1": "Bei Fragen zu dieser Datenschutzerklärung oder unseren Datenverarbeitungspraktiken wenden Sie sich bitte an:",
+      "address": "{{operatorName}}<br/>E-Mail: <emailLink>{{supportEmail}}</emailLink><br/>Oder nutzen Sie unser <supportLink>Kontaktformular</supportLink>."
+    }
+  },
+  "terms": {
+    "meta": {
+      "title": "Allgemeine Geschäftsbedingungen | Outgate.ai",
+      "description": "Allgemeine Geschäftsbedingungen für die Nutzung der AI-Gateway-Plattform Outgate.ai."
+    },
+    "title": "Allgemeine Geschäftsbedingungen",
+    "lastUpdated": "Zuletzt aktualisiert: 3. März 2026",
+    "intro": "Diese Allgemeinen Geschäftsbedingungen („AGB“) regeln Ihren Zugang zu und die Nutzung der Outgate-AI-Plattform, einschließlich der Konsole unter <consoleLink>console.outgate.ai</consoleLink>, des API Gateway und aller damit verbundenen Dienste (zusammenfassend der „Dienst“), betrieben von {{operatorName}} („Betreiber“, „wir“, „uns“, „unser“).",
+    "introStrong": "<strong>Durch den Zugang zu oder die Nutzung des Dienstes erklären Sie sich mit diesen AGB einverstanden. Wenn Sie nicht einverstanden sind, dürfen Sie den Dienst nicht nutzen.</strong>",
+    "section1": {
+      "heading": "1. Leistungsbeschreibung",
+      "p1": "Outgate AI ist eine AI-Gateway-Plattform, die Anforderungsrouting, Ratenbegrenzung, Provider-Verwaltung, Guardrail-Durchsetzung und Analytics für Integrationen von KI-APIs bereitstellt. Der Dienst wird auf einer Basis von <strong>„wie besehen“ und „wie verfügbar“</strong> erbracht."
+    },
+    "section2": {
+      "heading": "2. Berechtigung und Kontoregistrierung",
+      "items": [
+        "Sie müssen mindestens 16 Jahre alt sein und die Geschäftsfähigkeit besitzen, um diese AGB abzuschließen.",
+        "Sie müssen bei der Registrierung korrekte und vollständige Angaben machen. Sie sind für die Richtigkeit dieser Angaben verantwortlich.",
+        "Sie sind allein verantwortlich für die Geheimhaltung Ihrer Kontozugangsdaten, einschließlich Passwörter, API Keys und Zugriffstoken.",
+        "Sie sind für alle Aktivitäten unter Ihrem Konto verantwortlich, unabhängig davon, ob diese von Ihnen autorisiert wurden.",
+        "Sie müssen uns unverzüglich unter <emailLink>{{supportEmail}}</emailLink> benachrichtigen, wenn Sie von einer unbefugten Nutzung Ihres Kontos Kenntnis erlangen.",
+        "Eine natürliche Person darf nur ein Konto führen. Gemeinsam genutzte Konten sind nicht gestattet."
+      ]
+    },
+    "section3": {
+      "heading": "3. Zulässige Nutzung",
+      "p1": "Sie verpflichten sich, den Dienst NICHT zu folgenden Zwecken zu nutzen:",
+      "items": [
+        "Verstoß gegen geltendes Recht, Vorschriften oder Rechte Dritter, insbesondere EU- und deutsches Recht",
+        "Erzeugung, Übermittlung, Speicherung oder Förderung von Inhalten, die rechtswidrig, schädlich, bedrohlich, missbräuchlich, belästigend, verleumderisch, obszön oder anderweitig anstößig sind",
+        "Erzeugung von Inhalten, die Gewalt, Diskriminierung, Terrorismus oder die Ausbeutung Minderjähriger fördern",
+        "Umgehung, Deaktivierung oder Beeinträchtigung von Ratenbegrenzungen, Nutzungskontingenten, Sicherheitsfunktionen oder Zugriffskontrollen des Dienstes",
+        "Versuch des unbefugten Zugangs zu Teilen des Dienstes, anderen Konten, Computersystemen oder Netzwerken, die mit dem Dienst verbunden sind",
+        "Reverse Engineering, Dekompilierung, Disassemblierung oder sonstiger Versuch, den Quellcode des Dienstes abzuleiten",
+        "Nutzung des Dienstes für automatisiertes Scraping, Data Mining oder systematische Datenextraktion über die autorisierte API-Nutzung hinaus",
+        "Weiterverkauf, Unterlizenzierung, Weiterverbreitung oder Bereitstellung des Dienstes an Dritte ohne unsere vorherige schriftliche Zustimmung",
+        "Nutzung des Dienstes zur Entwicklung eines konkurrierenden Produkts oder Dienstes",
+        "Übertragung von Viren, Würmern, Malware oder anderem Schadcode über den Dienst",
+        "Identitätsvortäuschung oder falsche Angabe der Zugehörigkeit zu einer Person oder Organisation",
+        "Nutzung des Dienstes zum Versand unerwünschter Nachrichten (Spam) oder zu Phishing-Zwecken",
+        "Beeinträchtigung oder Störung der Integrität oder Leistungsfähigkeit des Dienstes oder der darin enthaltenen Daten",
+        "Nutzung von KI-Modellen über den Dienst zur Erzeugung von Inhalten, die gegen die Nutzungsrichtlinien des zugrunde liegenden KI-Anbieters verstoßen (z. B. OpenAI, Anthropic, Google)"
+      ],
+      "p2": "Wir behalten uns das Recht vor, mutmaßliche Verstöße zu untersuchen und geeignete Maßnahmen zu ergreifen, einschließlich der Sperrung oder Kündigung Ihres Kontos, ohne vorherige Ankündigung."
+    },
+    "section4": {
+      "heading": "4. API-Nutzung und Ratenbegrenzungen",
+      "items": [
+        "Die API-Nutzung unterliegt Ratenbegrenzungen und Kontingenten gemäß Ihrem Abonnementtarif.",
+        "Sie dürfen nicht versuchen, Ratenbegrenzungen mit irgendwelchen Mitteln zu umgehen, einschließlich, aber nicht beschränkt auf die Erstellung mehrerer Konten, die Rotation von API Keys oder die Nutzung verteilter Systeme zur Überschreitung von Kontingentgrenzen.",
+        "Wir behalten uns das Recht vor, den API-Zugang zu drosseln oder zu sperren, wenn Nutzungsmuster auf Missbrauch hindeuten oder die Plattformstabilität gefährden.",
+        "Der Dienst leitet Anfragen an KI-Anbieter von Drittparteien weiter. Wir sind nicht verantwortlich für Inhalt, Richtigkeit, Verfügbarkeit oder Richtlinien dieser Anbieter.",
+        "Sie sind allein verantwortlich für die Einhaltung der Nutzungsbedingungen und Richtlinien zur akzeptablen Nutzung aller KI-Anbieter, auf die über den Dienst zugegriffen wird."
+      ]
+    },
+    "section5": {
+      "heading": "5. Abonnement und Zahlung",
+      "items": [
+        "Der Dienst bietet kostenlose und kostenpflichtige Abonnementtarife. Leistungsmerkmale und Preise entsprechen den Angaben auf der Abrechnungsseite zum Zeitpunkt des Kaufs.",
+        "Alle Zahlungen werden über Stripe, Inc. abgewickelt. Mit dem Abschluss eines kostenpflichtigen Tarifs stimmen Sie den <stripeLink>Nutzungsbedingungen von Stripe</stripeLink> zu.",
+        "Kostenpflichtige Abonnements werden monatlich im Voraus abgerechnet und verlängern sich automatisch, sofern sie nicht gekündigt werden.",
+        "Sie können Ihr Abonnement jederzeit über das Kundenportal kündigen. Die Kündigung wird zum Ende des laufenden Abrechnungszeitraums wirksam. <strong>Teilrückerstattungen für nicht genutzte Zeiträume innerhalb eines Abrechnungszeitraums werden nicht gewährt.</strong>",
+        "Wir behalten uns das Recht vor, Preise mit einer Frist von 30 Tagen zu ändern. Die fortgesetzte Nutzung nach dem Inkrafttreten gilt als Annahme der neuen Preise.",
+        "Bei fehlgeschlagener Zahlung wird Ihr Konto in eine Karenzzeit versetzt. Wird die Zahlung nicht innerhalb von 7 Tagen beglichen, wird Ihr Konto auf den Free-Tarif herabgestuft und der Zugang zu kostenpflichtigen Funktionen eingeschränkt.",
+        "Alle Preise sind in Euro (EUR) und verstehen sich ohne die jeweils geltenden Steuern, sofern nicht anders angegeben."
+      ]
+    },
+    "section6": {
+      "heading": "6. Geistiges Eigentum",
+      "items": [
+        "Der Dienst, einschließlich seiner Software, seines Designs, seiner Logos, Dokumentation und aller zugehörigen geistigen Eigentumsrechte, ist und bleibt ausschließliches Eigentum des Betreibers.",
+        "Diese AGB gewähren Ihnen keinerlei Rechte, Titel oder Ansprüche am Dienst, mit Ausnahme des begrenzten Nutzungsrechts gemäß diesen AGB.",
+        "Sie behalten das Eigentum an allen Daten, die Sie an den Dienst oder über den Dienst übermitteln („Ihre Daten“). Sie räumen uns eine eingeschränkte Lizenz ein, Ihre Daten ausschließlich zur Erbringung des Dienstes zu verarbeiten.",
+        "„Outgate”, „Outgate AI” und die zugehörigen Logos sind Marken des Betreibers. Eine Nutzung ohne vorherige schriftliche Zustimmung ist nicht gestattet."
+      ]
+    },
+    "section7": {
+      "heading": "7. Gewährleistungsausschluss",
+      "preamble": "<strong>IM GRÖSSTMÖGLICHEN NACH GELTENDEM RECHT ZULÄSSIGEN UMFANG:</strong>",
+      "items": [
+        "Der Dienst wird <strong>„WIE BESEHEN“</strong> und <strong>„WIE VERFÜGBAR“</strong> bereitgestellt, ohne Gewährleistungen jeglicher Art, weder ausdrücklich, stillschweigend noch gesetzlich.",
+        "Wir schließen ausdrücklich alle stillschweigenden Gewährleistungen aus, einschließlich, aber nicht beschränkt auf Gewährleistungen der Marktgängigkeit, der Eignung für einen bestimmten Zweck, der Nichtverletzung und der Richtigkeit.",
+        "Wir gewährleisten nicht, dass der Dienst unterbrechungsfrei, fehlerfrei, sicher oder frei von Viren oder anderen schädlichen Komponenten ist.",
+        "Wir gewährleisten nicht die Richtigkeit, Vollständigkeit oder Zuverlässigkeit von Inhalten, die durch über den Dienst aufgerufene KI-Modelle erzeugt werden.",
+        "Wir gewährleisten nicht die Verfügbarkeit, Leistungsfähigkeit oder Kompatibilität von über den Dienst aufgerufenen KI-Drittanbietern.",
+        "Jedes Vertrauen, das Sie in den Dienst oder seine Ergebnisse setzen, geschieht auf eigenes Risiko."
+      ]
+    },
+    "section8": {
+      "heading": "8. Haftungsbeschränkung",
+      "preamble": "<strong>IM GRÖSSTMÖGLICHEN NACH GELTENDEM RECHT ZULÄSSIGEN UMFANG:</strong>",
+      "items": [
+        "Der Betreiber haftet nicht für <strong>mittelbare, beiläufige, besondere, Folge- oder Strafschäden</strong>, einschließlich, aber nicht beschränkt auf entgangenen Gewinn, Datenverlust, entgangene Geschäftsmöglichkeiten, Betriebsunterbrechung oder Verlust des Firmenwerts, die aus oder in Verbindung mit der Nutzung oder der Unmöglichkeit der Nutzung des Dienstes entstehen, unabhängig von der Haftungstheorie (Vertrag, unerlaubte Handlung, Gefährdungshaftung oder sonstige), selbst wenn wir auf die Möglichkeit solcher Schäden hingewiesen wurden.",
+        "Die <strong>Gesamthaftung</strong> des Betreibers für alle Ansprüche im Zusammenhang mit diesen AGB oder dem Dienst ist auf die von Ihnen an uns gezahlten Gebühren in den <strong>zwölf (12) Monaten</strong> vor dem schadenauslösenden Ereignis oder <strong>EUR 100</strong> begrenzt, je nachdem, welcher Betrag höher ist.",
+        "<strong>Vorbehalt nach deutschem Recht (zwingend gemäß § 309 Nr. 7 BGB):</strong> Die vorstehenden Beschränkungen gelten nicht für die Haftung (a) für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit aufgrund einer fahrlässigen oder vorsätzlichen Pflichtverletzung des Betreibers; (b) für Schäden aufgrund vorsätzlichen Handelns (Vorsatz) oder grober Fahrlässigkeit des Betreibers; (c) für die Haftung nach dem Produkthaftungsgesetz; oder (d) für sonstige Haftung, die nach zwingendem deutschem Recht nicht ausgeschlossen oder beschränkt werden kann.",
+        "Bei Verletzung wesentlicher Vertragspflichten (Kardinalpflichten) durch einfache Fahrlässigkeit ist die Haftung auf den vorhersehbaren, vertragstypischen Schaden begrenzt."
+      ]
+    },
+    "section9": {
+      "heading": "9. Freistellung",
+      "p1": "Sie verpflichten sich, den Betreiber und seine verbundenen Unternehmen, Vertreter und Dienstleister von sämtlichen Ansprüchen, Schäden, Verlusten, Verbindlichkeiten, Kosten und Aufwendungen (einschließlich angemessener Anwaltskosten) freizustellen, die sich ergeben aus oder im Zusammenhang stehen mit:",
+      "items": [
+        "Ihrer Nutzung des Dienstes oder jeglicher Aktivität unter Ihrem Konto",
+        "Ihrem Verstoß gegen diese AGB",
+        "Ihrem Verstoß gegen geltendes Recht oder Vorschriften",
+        "Ihrer Verletzung von Rechten Dritter, einschließlich geistiger Eigentumsrechte, Datenschutzrechte oder Persönlichkeitsrechte",
+        "Inhalten, die durch Ihre Nutzung von KI-Modellen über den Dienst erzeugt werden",
+        "Ansprüchen Dritter, die sich aus Ihrer Nutzung des Dienstes ergeben"
+      ]
+    },
+    "section10": {
+      "heading": "10. Datenschutz",
+      "p1": "Wir verarbeiten personenbezogene Daten gemäß unserer <privacyLink>Datenschutzerklärung</privacyLink> und den geltenden Datenschutzgesetzen, einschließlich der Datenschutz-Grundverordnung (DSGVO) der EU und des Bundesdatenschutzgesetzes (BDSG)."
+    },
+    "section11": {
+      "heading": "11. Kündigung",
+      "items": [
+        "Sie können Ihr Konto jederzeit kündigen, indem Sie uns kontaktieren oder Ihr Konto über den Dienst löschen.",
+        "Wir können Ihr Konto jederzeit sperren oder kündigen, mit oder ohne Grund, mit oder ohne Vorankündigung. Gründe für eine Kündigung umfassen unter anderem: Verstoß gegen diese AGB, Verdacht auf betrügerische Aktivitäten, längere Inaktivität oder nach unserem alleinigen Ermessen.",
+        "Bei Kündigung erlischt Ihr Recht zur Nutzung des Dienstes unverzüglich. Wir können Ihre Daten gemäß unserer Datenschutzerklärung und den geltenden Aufbewahrungspflichten löschen.",
+        "Die Abschnitte 6, 7, 8, 9, 13 und 14 gelten über die Beendigung dieser AGB hinaus fort."
+      ]
+    },
+    "section12": {
+      "heading": "12. Drittanbieterdienste",
+      "p1": "Der Dienst integriert und nutzt Drittanbieterdienste, einschließlich, aber nicht beschränkt auf AWS, Stripe, Google und verschiedene KI-Modellanbieter. Wir sind nicht verantwortlich für:",
+      "items": [
+        "Die Verfügbarkeit, Betriebszeit oder Leistungsfähigkeit von Drittanbieterdiensten",
+        "Änderungen an APIs, Preisen oder Nutzungsbedingungen von Drittanbietern",
+        "Die Datenverarbeitung durch Drittanbieterdienste außerhalb unserer Kontrolle",
+        "Verluste oder Schäden, die aus der Nichtverfügbarkeit oder Fehlfunktion von Drittanbieterdiensten resultieren"
+      ]
+    },
+    "section13": {
+      "heading": "13. Anwendbares Recht und Gerichtsstand",
+      "items": [
+        "Diese AGB unterliegen dem Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG).",
+        "Ausschließlicher Gerichtsstand für alle Streitigkeiten aus oder im Zusammenhang mit diesen AGB ist, soweit gesetzlich zulässig, Berlin, Deutschland.",
+        "Sind Sie Verbraucher im Sinne von § 13 BGB, gelten die zwingenden Verbraucherschutzvorschriften Ihres Wohnsitzlandes, soweit diese einen weitergehenden Schutz bieten."
+      ]
+    },
+    "section14": {
+      "heading": "14. Höhere Gewalt",
+      "p1": "Der Betreiber haftet nicht für Verzögerungen oder die Nichterfüllung von Pflichten aus diesen AGB, die durch Ereignisse außerhalb der zumutbaren Kontrolle verursacht werden, einschließlich, aber nicht beschränkt auf Naturkatastrophen, Krieg, Terrorismus, Pandemien, staatliche Maßnahmen, Stromausfälle, Internetausfälle, Cyberangriffe oder Ausfälle von Drittanbieterdiensten."
+    },
+    "section15": {
+      "heading": "15. Änderungen der AGB",
+      "items": [
+        "Wir behalten uns das Recht vor, diese AGB jederzeit zu ändern. Über wesentliche Änderungen werden Sie über den Dienst oder per E-Mail mit einer Frist von mindestens 14 Tagen informiert.",
+        "Ihre fortgesetzte Nutzung des Dienstes nach Inkrafttreten geänderter AGB gilt als Annahme der Änderungen.",
+        "Sind Sie mit den geänderten AGB nicht einverstanden, müssen Sie die Nutzung des Dienstes einstellen und können Ihr Konto kündigen."
+      ]
+    },
+    "section16": {
+      "heading": "16. Salvatorische Klausel",
+      "p1": "Sollte eine Bestimmung dieser AGB von einem zuständigen Gericht für unwirksam, rechtswidrig oder undurchsetzbar erklärt werden, bleiben die übrigen Bestimmungen in vollem Umfang wirksam. Die unwirksame Bestimmung wird durch eine wirksame Bestimmung ersetzt, die dem ursprünglichen Zweck am nächsten kommt."
+    },
+    "section17": {
+      "heading": "17. Vollständige Vereinbarung",
+      "p1": "Diese AGB bilden zusammen mit der <privacyLink>Datenschutzerklärung</privacyLink> die gesamte Vereinbarung zwischen Ihnen und dem Betreiber hinsichtlich der Nutzung des Dienstes und ersetzen alle früheren Vereinbarungen, Absprachen und Mitteilungen."
+    },
+    "section18": {
+      "heading": "18. Kontakt",
+      "p1": "Bei Fragen zu diesen AGB wenden Sie sich bitte an:",
+      "address": "{{operatorName}}<br/>E-Mail: <emailLink>{{supportEmail}}</emailLink><br/>Oder nutzen Sie unser <supportLink>Kontaktformular</supportLink>."
+    }
+  },
+  "impressum": {
+    "meta": {
+      "title": "Impressum | Outgate.ai",
+      "description": "Impressum der Outgate UG — Pflichtangaben gemäß deutschem Recht."
+    },
+    "title": "Impressum",
+    "subtitle": "Angaben gemäß § 5 TMG",
+    "company": {
+      "heading": "Unternehmen",
+      "address": "Outgate UG (haftungsbeschränkt)<br/>Beuthstr. 2<br/>10117 Berlin<br/>Deutschland"
+    },
+    "representedBy": {
+      "heading": "Vertreten durch",
+      "p1": "Geschäftsführer: Seyed Ali Khoramshahi"
+    },
+    "contact": {
+      "heading": "Kontakt",
+      "p1": "E-Mail: <emailLink>support@outgate.ai</emailLink><br/>Website: <websiteLink>outgate.ai</websiteLink>"
+    },
+    "registration": {
+      "heading": "Registrierung",
+      "p1": "Eingetragen beim: Amtsgericht Charlottenburg, Berlin<br/>Registernummer: <em>ausstehend</em>"
+    },
+    "vatId": {
+      "heading": "Umsatzsteuer-ID",
+      "p1": "Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz (UStG):<br/><em>Zuweisung ausstehend</em>"
+    },
+    "responsibleForContent": {
+      "heading": "Verantwortlich für den Inhalt",
+      "address": "Seyed Ali Khoramshahi<br/>Beuthstr. 2<br/>10117 Berlin"
+    },
+    "disputeResolution": {
+      "heading": "Streitbeilegung",
+      "p1": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <odrLink>https://ec.europa.eu/consumers/odr</odrLink>.",
+      "p2": "Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+    }
+  },
+  "license": {
+    "title": "Pro-Lizenzvereinbarung",
+    "subtitle": "Bitte lesen Sie die Lizenzvereinbarung für den Outgate AI Regional Stack.",
+    "backToConsole": "Zurück zur Konsole",
+    "section1": {
+      "heading": "1. Lizenzgewährung",
+      "p1": "Vorbehaltlich der Bedingungen dieser Vereinbarung und eines aktiven kostenpflichtigen Abonnements des Outgate AI Pro-Tarifs („Abonnement“) gewährt der Betreiber Ihnen eine beschränkte, nicht-exklusive, nicht übertragbare, widerrufliche Lizenz zum Herunterladen, Installieren und Verwenden der Outgate AI Regional Stack Software („Software“) ausschließlich für die internen Geschäftszwecke Ihrer Organisation."
+    },
+    "section2": {
+      "heading": "2. Beschränkungen",
+      "p1": "Sie verpflichten sich, Folgendes zu unterlassen:",
+      "items": [
+        "Reverse Engineering, Dekompilierung, Disassemblierung oder sonstiger Versuch, den Quellcode, die Algorithmen oder die zugrunde liegende Struktur der Software abzuleiten;",
+        "Weiterverbreitung, Unterlizenzierung, Verkauf, Vermietung, Verleih oder sonstige Bereitstellung der Software an Dritte;",
+        "Erstellung abgeleiteter Werke auf Grundlage der Software oder Teilen davon;",
+        "Entfernung, Änderung oder Unkenntlichmachung von Eigentumshinweisen, Kennzeichnungen oder Markierungen auf der Software;",
+        "Nutzung der Software zur Entwicklung eines konkurrierenden Produkts oder Dienstes;",
+        "Kopieren oder Extrahieren von Softwarekomponenten zur Verwendung außerhalb der lizenzierten Bereitstellung."
+      ]
+    },
+    "section3": {
+      "heading": "3. Wettbewerbsverbot",
+      "p1": "Während der Laufzeit Ihres Abonnements und für zwölf (12) Monate danach verpflichten Sie sich, aus der Software gewonnene Kenntnisse nicht zur Entwicklung, Vermarktung oder zum Verkauf von Produkten oder Diensten zu nutzen, die direkt mit der Outgate-AI-Plattform konkurrieren."
+    },
+    "section4": {
+      "heading": "4. Geistiges Eigentum",
+      "p1": "Die Software, einschließlich aller Quellcodes, Objektcodes, Algorithmen, Konfigurationen, Dokumentationen und zugehörigen Materialien, ist und bleibt ausschließliches Eigentum des Betreibers. Diese Vereinbarung überträgt keine Eigentumsrechte. Alle nicht ausdrücklich gewährten Rechte verbleiben beim Betreiber."
+    },
+    "section5": {
+      "heading": "5. Abonnementvoraussetzung",
+      "p1": "Ihr Recht zur Nutzung der Software setzt ein aktives Pro-Tarif-Abonnement in ordnungsgemäßem Zustand voraus. Bei Kündigung, Ablauf oder Beendigung Ihres Abonnements wird Ihre Lizenz zur Nutzung der Software sofort widerrufen, und Sie müssen jegliche Nutzung einstellen und alle Kopien der Software in Ihrem Besitz vernichten."
+    },
+    "section6": {
+      "heading": "6. Prüfung und Telemetrie",
+      "p1": "Die Software enthält Telemetrie- und Heartbeat-Mechanismen, die den Betriebsstatus und Nutzungsmetriken an den Betreiber übermitteln. Sie verpflichten sich, diese Mechanismen nicht zu deaktivieren, zu umgehen oder zu beeinträchtigen. Der Betreiber behält sich das Recht vor, Ihre Nutzung der Software zu prüfen, um die Einhaltung dieser Vereinbarung zu verifizieren."
+    },
+    "section7": {
+      "heading": "7. Kündigung",
+      "p1": "Der Betreiber kann diese Vereinbarung bei Verstoß gegen eine Bestimmung sofort durch schriftliche Mitteilung kündigen. Mit der Kündigung erlöschen alle unter dieser Vereinbarung gewährten Rechte, und Sie müssen die Nutzung sofort einstellen und alle Kopien der Software vernichten. Die Abschnitte 2, 3, 4, 8 und 9 gelten über die Kündigung hinaus fort."
+    },
+    "section8": {
+      "heading": "8. Haftungsbeschränkung",
+      "p1": "IM GRÖSSTMÖGLICHEN NACH GELTENDEM RECHT ZULÄSSIGEN UMFANG HAFTET DER BETREIBER NICHT FÜR MITTELBARE, BEILÄUFIGE, BESONDERE, FOLGE- ODER STRAFSCHÄDEN, DIE AUS ODER IM ZUSAMMENHANG MIT DIESER VEREINBARUNG ODER DER NUTZUNG DER SOFTWARE ENTSTEHEN, UNABHÄNGIG VON DER ANSPRUCHSGRUNDLAGE ODER HAFTUNGSTHEORIE. DIE GESAMTHAFTUNG DES BETREIBERS IST AUF DIE VON IHNEN FÜR DAS ABONNEMENT IN DEN ZWÖLF (12) MONATEN VOR DEM ANSPRUCH GEZAHLTEN GEBÜHREN BEGRENZT."
+    },
+    "section9": {
+      "heading": "9. Anwendbares Recht",
+      "p1": "Diese Vereinbarung unterliegt dem Recht des Sitzstaates des Betreibers unter Ausschluss kollisionsrechtlicher Vorschriften."
+    }
+  },
+  "support": {
+    "meta": {
+      "title": "Support | Outgate.ai",
+      "description": "Kontaktieren Sie das Support-Team von Outgate.ai. Senden Sie Fehlermeldungen, Funktionswünsche und Abrechnungsanfragen."
+    },
+    "title": "Support",
+    "subtitle": "Benötigen Sie Hilfe? Füllen Sie das folgende Formular aus und wir melden uns so schnell wie möglich bei Ihnen.",
+    "form": {
+      "name": "Name *",
+      "namePlaceholder": "Ihr Name",
+      "email": "E-Mail *",
+      "emailPlaceholder": "ihre@email.de",
+      "organizationId": "Organisations-ID",
+      "plan": "Tarif",
+      "subject": "Betreff *",
+      "subjectPlaceholder": "Kurze Zusammenfassung Ihres Anliegens",
+      "category": "Kategorie",
+      "priority": "Priorität",
+      "description": "Beschreibung *",
+      "descriptionPlaceholder": "Bitte beschreiben Sie Ihr Anliegen ausführlich. Geben Sie bei Fehlermeldungen die Schritte zur Reproduktion an.",
+      "submit": "Ticket absenden",
+      "submitting": "Wird gesendet …"
+    },
+    "categories": {
+      "bug": "Fehlermeldung",
+      "feature": "Funktionswunsch",
+      "billing": "Abrechnung",
+      "account": "Konto",
+      "general": "Allgemein"
+    },
+    "priorities": {
+      "low": "Niedrig",
+      "medium": "Mittel",
+      "high": "Hoch"
+    },
+    "success": {
+      "title": "Ticket gesendet",
+      "message": "Ihr Support-Ticket wurde empfangen. Wir melden uns so schnell wie möglich bei Ihnen.",
+      "caseNumber": "Fallnummer",
+      "saveCaseNumber": "Bitte notieren Sie sich diese Fallnummer für Ihre Unterlagen."
+    },
+    "backToConsole": "Zurück zur Konsole",
+    "errorFallback": "Support-Ticket konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
+  },
+  "docsPage": {
+    "meta": {
+      "title": "Dokumentation | Outgate.ai",
+      "description": "Einstiegsleitfäden, API-Referenz und Konfigurationsdokumentation für die Outgate.ai AI-Gateway- und Guardrails-Plattform."
+    },
+    "title": "Dokumentation",
+    "subtitle": "Outgate AI ist eine Plattform zur Weiterleitung von KI-Verkehr über ein verwaltetes Gateway mit Ratenbegrenzung, Authentifizierung, Guardrail-Durchsetzung und vollständiger Observability.",
+    "toc": {
+      "title": "Inhalt",
+      "groups": {
+        "gateway": "AI Gateway",
+        "routing": "Routing",
+        "guardrails": "Guardrails",
+        "regions": "Regionen",
+        "reference": "Referenz"
+      },
+      "gettingStarted": "Erste Schritte",
+      "agentCli": "Agent- und CLI-Nutzung",
+      "apiUsage": "API-Nutzung",
+      "gatewayFlow": "So funktioniert das Gateway",
+      "routerTypes": "Router-Typen",
+      "failoverRouter": "Failover Router",
+      "weightedRouter": "Load Balancer (gewichtet)",
+      "smartRouter": "Smart Router",
+      "combinedRouter": "Kombiniert (mehrstufig)",
+      "guardrailsFlow": "So funktionieren Guardrails",
+      "riskCategories": "Risikokategorien",
+      "anonymization": "Anonymisierung und Rehydrierung",
+      "policyConfig": "Richtlinienkonfiguration",
+      "architecture": "Architektur",
+      "communication": "Kommunikationsmodi",
+      "stack": "Stack-Komponenten",
+      "guardrailLlm": "Guardrail-LLM-Konfiguration",
+      "dataResidency": "Datenresidenz",
+      "troubleshooting": "Fehlerbehebung"
+    },
+    "gettingStarted": {
+      "heading": "Erste Schritte",
+      "p1": "Richten Sie das Gateway in drei Schritten ein: Erstellen Sie einen Provider, konfigurieren Sie die Authentifizierung und rufen Sie den Endpoint auf.",
+      "step1": {
+        "heading": "1. Provider erstellen",
+        "p1": "Fügen Sie einen Provider in der Konsole hinzu, indem Sie OpenAI, Anthropic oder eine benutzerdefinierte URL auswählen. Legen Sie Ratenbegrenzungen fest und verknüpfen Sie optional eine Guardrail-Richtlinie.",
+        "p2": "<strong>Forward Caller Auth</strong> — bei Aktivierung leitet das Gateway den <code>Authorization</code>-Header des Aufrufers direkt an den Upstream-Provider weiter. Jeder Benutzer verwendet seinen eigenen API Key; es wird kein gemeinsames Geheimnis im Gateway gespeichert."
+      },
+      "step2": {
+        "heading": "2. Richtlinie und API Key erstellen (optional)",
+        "p1": "Falls Forward Caller Auth deaktiviert ist, erstellen Sie eine Zugriffsrichtlinie (Vollzugriff oder beschränkt auf bestimmte Provider) und erstellen Sie dann einen API Key, der mit dieser Richtlinie verknüpft ist. Kopieren Sie den Key — er wird nicht erneut angezeigt.",
+        "p2": "Überspringen Sie diesen Schritt, wenn der Provider Forward Caller Auth verwendet — der eigene Key des Aufrufers wird stattdessen verwendet."
+      },
+      "step3": {
+        "heading": "3. Endpoint aufrufen",
+        "p1": "Jeder Provider erhält einen eindeutigen Gateway-Endpoint. Kopieren Sie ihn aus der Konsole und richten Sie Ihren Client darauf aus."
+      }
+    }
+  }
+}

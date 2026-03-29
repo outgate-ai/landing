@@ -1,0 +1,550 @@
+/* ================================================================== */
+/*  Routing Visualizer — Outgate Landing                               */
+/* ================================================================== */
+
+.rv-section {
+  background: linear-gradient(180deg, #0f0f23 0%, #1a1a3e 100%);
+  padding: 6rem 2rem;
+}
+
+/* ---- Section header ---- */
+
+.rv-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.rv-subheading {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 3rem;
+  line-height: 1.8;
+}
+
+/* ---- Mode tabs ---- */
+
+.rv-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.rv-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 1px solid rgba(147, 112, 219, 0.12);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.rv-tab:hover {
+  background: rgba(147, 112, 219, 0.08);
+  border-color: rgba(147, 112, 219, 0.25);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.rv-tab.on {
+  background: rgba(147, 112, 219, 0.15);
+  border-color: rgba(147, 112, 219, 0.4);
+  color: #fff;
+}
+
+.rv-tab-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.rv-tab-label { font-weight: 600; }
+
+.rv-tab-tag {
+  font-size: 0.75rem;
+  opacity: 0.5;
+  font-weight: 400;
+}
+
+.rv-tab.on .rv-tab-tag { opacity: 0.8; color: #c4b5fd; }
+
+/* ================================================================== */
+/*  Desktop canvas — absolute positioning, one coordinate system       */
+/* ================================================================== */
+
+.rv-canvas {
+  position: relative;
+  max-width: 1200px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+/* SVG layer: fills the canvas, draws all wires + lines */
+.rv-svg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.rv-wire-svg {
+  stroke: rgba(147, 112, 219, 0.3);
+  stroke-width: 2px;
+  stroke-dasharray: 8 5;
+  vector-effect: non-scaling-stroke;
+}
+
+.rv-line {
+  stroke: rgba(147, 112, 219, 0.18);
+  stroke-width: 1.5px;
+  transition: all 0.3s ease;
+  vector-effect: non-scaling-stroke;
+}
+
+.rv-line.lit {
+  stroke: rgba(147, 112, 219, 0.5);
+  stroke-width: 2.5px;
+}
+
+/* ---- Absolutely positioned nodes ---- */
+
+.rv-node-abs {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: max-content;
+}
+
+/* Upstream cards: anchor from left edge so lines connect to left side */
+.rv-node-abs:not(.rv-client):not(.rv-gw):not(.rv-lane-router-wrap) {
+  transform: translate(0, -50%);
+}
+
+/* Packet dots */
+.rv-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #9370db;
+  box-shadow: 0 0 8px rgba(147, 112, 219, 0.7);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.rv-dot.ret {
+  background: #6ee7b7;
+  box-shadow: 0 0 8px rgba(110, 231, 183, 0.7);
+}
+
+.rv-dot.fail {
+  background: #fca5a5;
+  box-shadow: 0 0 8px rgba(252, 165, 165, 0.7);
+}
+
+/* ---- Client node ---- */
+
+.rv-client {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 28px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #191940 0%, #1c1845 100%);
+  border: 1.5px solid rgba(147, 112, 219, 0.15);
+}
+
+.rv-client-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(147, 112, 219, 0.12);
+  border: 1px solid rgba(147, 112, 219, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c4b5fd;
+}
+
+.rv-client-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.rv-client-examples {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  line-height: 1.5;
+  max-width: 140px;
+}
+
+/* ---- Gateway node ---- */
+
+.rv-gw {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 28px 32px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #191940 0%, #1c1845 100%);
+  border: 1.5px solid rgba(147, 112, 219, 0.25);
+  position: relative;
+}
+
+.rv-gw-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(147, 112, 219, 0.35);
+}
+
+.rv-gw-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.rv-gw-sub {
+  font-size: 0.8rem;
+  color: rgba(147, 112, 219, 0.85);
+  font-weight: 500;
+}
+
+.rv-gw-ring {
+  position: absolute;
+  inset: -5px;
+  border-radius: 24px;
+  border: 2px solid rgba(147, 112, 219, 0.12);
+  animation: rv-pulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes rv-pulse {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.015); }
+}
+
+/* ---- Upstream cards ---- */
+
+.rv-up {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #16163a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.rv-up.lit {
+  background: rgba(147, 112, 219, 0.1);
+  border-color: rgba(147, 112, 219, 0.35);
+  box-shadow: 0 0 0 3px rgba(147, 112, 219, 0.06);
+}
+
+.rv-up-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.rv-up-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.rv-up-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.rv-up-model {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.rv-up-meta {
+  font-size: 0.8rem;
+  color: rgba(147, 112, 219, 0.8);
+  margin-top: 2px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.3px;
+}
+
+/* ---- Combined: sub-router nodes ---- */
+
+.rv-lane-router-wrap {
+  z-index: 1;
+}
+
+.rv-lane-router {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #181842 0%, #1a1640 100%);
+  border: 1px solid rgba(147, 112, 219, 0.2);
+  transition: all 0.3s ease;
+}
+
+.rv-lane-router.lit {
+  border-color: rgba(147, 112, 219, 0.5);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.18) 0%, rgba(118, 75, 162, 0.18) 100%);
+  box-shadow: 0 0 0 3px rgba(147, 112, 219, 0.1);
+}
+
+.rv-lane-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(147, 112, 219, 0.3);
+}
+
+.rv-lane-icon svg { width: 16px; height: 16px; }
+
+.rv-lane-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'JetBrains Mono', monospace;
+  white-space: nowrap;
+}
+
+.rv-lane-type {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #9370db;
+  background: rgba(147, 112, 219, 0.15);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* ---- Bottom: description + pause ---- */
+
+.rv-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 2.5rem auto 0;
+  position: relative;
+}
+
+.rv-desc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  max-width: 680px;
+  line-height: 1.8;
+}
+
+.rv-pause-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.rv-pause-btn:hover {
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(147, 112, 219, 0.08);
+  border-color: rgba(147, 112, 219, 0.2);
+}
+
+/* ================================================================== */
+/*  Mobile vertical flow (hidden on desktop)                           */
+/* ================================================================== */
+
+.rv-mobile { display: none; }
+
+.rv-m-node {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.rv-m-node span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.rv-m-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: rgba(147, 112, 219, 0.12);
+  border: 1px solid rgba(147, 112, 219, 0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: #c4b5fd; flex-shrink: 0;
+}
+
+.rv-m-icon-gw {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none; color: white;
+  box-shadow: 0 3px 10px rgba(147, 112, 219, 0.3);
+}
+
+.rv-m-gw {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-color: rgba(147, 112, 219, 0.25);
+}
+
+.rv-m-subrouter {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+  border-color: rgba(147, 112, 219, 0.2);
+}
+
+.rv-m-node-text { display: flex; flex-direction: column; gap: 2px; }
+
+.rv-m-subtext {
+  font-size: 0.8rem !important; font-weight: 400 !important;
+  color: rgba(255, 255, 255, 0.35) !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.rv-m-arrow {
+  width: 2px; height: 12px;
+  background: rgba(147, 112, 219, 0.25);
+  margin-left: 34px;
+}
+
+.rv-m-fan {
+  display: flex; flex-direction: column;
+  margin-left: 34px;
+  padding-left: 20px;
+  border-left: 2px solid rgba(147, 112, 219, 0.25);
+}
+
+.rv-m-branch { display: flex; align-items: center; position: relative; }
+.rv-m-branch-line { display: none; }
+.rv-m-branch-down { display: none; }
+.rv-m-arrow-sm { display: none; }
+
+.rv-m-branch::before {
+  content: '';
+  position: absolute;
+  left: -20px; top: 50%;
+  width: 20px; height: 2px;
+  background: rgba(147, 112, 219, 0.25);
+}
+
+.rv-mobile > .rv-m-fan .rv-m-branch:last-child::after,
+.rv-m-lane:last-child .rv-m-fan .rv-m-branch:last-child::after {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: calc(50% + 1px);
+  bottom: 0;
+  width: 4px;
+  background: #151530;
+}
+
+.rv-m-up-card {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  flex: 1; margin: 4px 0;
+}
+
+.rv-m-up-card .rv-up-badge {
+  width: 28px; height: 28px; font-size: 0.8rem; border-radius: 7px;
+}
+
+.rv-m-lane { display: flex; flex-direction: column; }
+.rv-m-lane .rv-m-arrow { height: 12px; }
+
+/* ================================================================== */
+/*  Responsive                                                         */
+/* ================================================================== */
+
+@media (max-width: 1024px) {
+  .rv-section { padding: 4rem 1.5rem; }
+  .rv-heading { font-size: 2rem; }
+  .rv-canvas { height: 380px; }
+}
+
+@media (max-width: 768px) {
+  .rv-section { padding: 3rem 1rem; }
+  .rv-heading { font-size: 1.75rem; }
+  .rv-subheading { font-size: 1rem; margin-bottom: 2rem; }
+
+  .rv-canvas { display: none; }
+  .rv-mobile {
+    display: flex; flex-direction: column;
+    max-width: 420px; margin: 0 auto;
+  }
+
+  .rv-tabs { gap: 6px; justify-content: center; }
+  .rv-tab { padding: 8px 14px; font-size: 0.78rem; }
+}
+
+@media (max-width: 480px) {
+  .rv-heading { font-size: 1.5rem; }
+  .rv-tab-label { font-size: 0.75rem; }
+  .rv-m-node span { font-size: 0.85rem; }
+  .rv-m-up-card { padding: 8px 10px; }
+}

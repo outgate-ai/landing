@@ -1,0 +1,287 @@
+.hero-earth {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.hero-container {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+/* Desktop: Globe on top to prevent text overflow */
+.hero-right {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 20;
+}
+
+.hero-left {
+  z-index: 10;
+  padding: 4rem 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.hero-brand { margin-bottom: 1.5rem; }
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  background: linear-gradient(135deg, #ffffff 0%, #9370db 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+  margin-bottom: 0.5rem;
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  color: rgba(147, 112, 219, 0.9);
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero-description {
+  font-size: 2.6rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+  max-width: min(800px, 100%);
+}
+
+.hero-description-secondary {
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.6rem;
+}
+
+/* Flip-clock rotating word */
+.hero-flip-container {
+  display: inline-block;
+  position: relative;
+  vertical-align: -0.35em;
+  text-align: left;
+  width: 10.5ch;
+  height: 1.3em;
+  overflow: hidden;
+}
+
+.hero-flip-card {
+  display: block;
+  position: relative;
+  color: #9370db;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-flip-card.flipping {
+  transform: translateY(-50%);
+}
+
+.hero-flip-card.no-transition {
+  transition: none;
+}
+
+.hero-flip-front,
+.hero-flip-back {
+  display: block;
+  height: 1.3em;
+  line-height: 1.3em;
+}
+
+/* Magic "building" word */
+.hero-magic-word {
+  background: linear-gradient(135deg, #9370db 0%, #667eea 40%, #c084fc 70%, #9370db 100%);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  animation: hero-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes hero-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #9370db 0%, #6a5acd 100%);
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(147, 112, 219, 0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(147, 112, 219, 0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(147, 112, 219, 0.5);
+  padding: 14px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+  background: rgba(147, 112, 219, 0.1);
+  border-color: rgba(147, 112, 219, 0.8);
+  transform: translateY(-2px);
+}
+
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.3px;
+}
+
+.hero-trust-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(147, 112, 219, 0.5);
+  flex-shrink: 0;
+}
+
+/* Tablet breakpoint (960-1024px) */
+@media (max-width: 1024px) and (min-width: 961px) {
+  .hero-left {
+    padding: 4rem 3rem;
+    z-index: 1;
+  }
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-description {
+    font-size: 1.8rem;
+    line-height: 1.6;
+  }
+  .hero-description-secondary {
+    font-size: 1.2rem;
+  }
+  .hero-trust {
+    font-size: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+/* Responsive */
+@media (max-width: 960px), (max-aspect-ratio: 1.2/1) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 40vh auto;
+    min-height: auto;
+  }
+  .hero-left {
+    order: 2;
+    text-align: center;
+    padding: 2rem;
+    margin-top: -10rem;
+    z-index: 20;
+  }
+  .hero-right { order: 1; z-index: 5; }
+  .hero-description { margin: 0 auto 2rem; max-width: 600px; }
+  .hero-actions { justify-content: center; }
+  .hero-trust { justify-content: center; flex-wrap: wrap; }
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.5rem; }
+  .hero-tagline { font-size: 1rem; }
+  .hero-description {
+    font-size: 1.3rem;
+    line-height: 1.6;
+  }
+  .hero-description-secondary {
+    font-size: 1.1rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+  .hero-trust {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.95rem;
+  }
+  .hero-container {
+    grid-template-rows: 35vh auto;
+  }
+  .hero-left {
+    margin-top: -8rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 2rem; }
+  .hero-description { font-size: 1.1rem; }
+  .hero-description-secondary { font-size: 0.95rem; }
+  .hero-container { min-height: auto; grid-template-rows: 30vh auto; }
+  .hero-left { padding: 1.5rem 1rem; margin-top: -6rem; }
+  .hero-trust { font-size: 0.85rem; gap: 6px; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-top: 4em;
+  }
+  .hero-left { order: 1; margin-top: 0; padding: 1rem 2rem; text-align: left; }
+  .hero-right { order: 2; height: 100%; }
+  .hero-title { font-size: 2rem; }
+  .hero-description { font-size: 0.9rem; margin-bottom: 1rem; }
+  .hero-actions { flex-direction: row; gap: 1rem; }
+  .btn-primary, .btn-secondary { padding: 8px 20px; font-size: 0.9rem; }
+}

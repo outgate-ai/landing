@@ -1,0 +1,124 @@
+.dashboard-section {
+  background: white;
+  padding: 5rem 2rem;
+}
+
+.dashboard-section .container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.dashboard-description {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+/* ---- Image gallery ---- */
+
+.dashboard-preview {
+  position: relative;
+  min-height: 200px;
+}
+
+.dashboard-image {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.dashboard-image.active {
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---- Controls: dots + pause ---- */
+
+.dash-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+.dash-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dash-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #d1d5db;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.dash-dot:hover {
+  background: #9ca3af;
+}
+
+.dash-dot.on {
+  background: #1a1a3e;
+  box-shadow: 0 0 0 3px rgba(26, 26, 62, 0.15);
+}
+
+.dash-pause-btn {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #fff;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dash-pause-btn:hover {
+  color: #475569;
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 768px) {
+  .dashboard-section { padding: 4rem 1.5rem; }
+  .dashboard-image { border-radius: 16px; }
+}
+
+@media (max-width: 480px) {
+  .dashboard-section { padding: 3rem 1rem; }
+  .dashboard-image { border-radius: 12px; }
+}
