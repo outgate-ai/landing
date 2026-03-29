@@ -329,13 +329,13 @@
   "impressum": {
     "meta": {
       "title": "Impressum | Outgate.ai",
-      "description": "Legal notice (Impressum) for Outgate UG \u2014 company information as required by German law."
+      "description": "Legal notice (Impressum) for Gatewise UG \u2014 company information as required by German law."
     },
     "title": "Impressum",
     "subtitle": "Legal notice pursuant to Section 5 TMG",
     "company": {
       "heading": "Company",
-      "address": "Outgate UG (haftungsbeschr\u00e4nkt)<br/>Beuthstr. 2<br/>10117 Berlin<br/>Germany"
+      "address": "Gatewise UG (haftungsbeschr\u00e4nkt)<br/>Beuthstr. 2<br/>10117 Berlin<br/>Germany"
     },
     "representedBy": {
       "heading": "Represented by",
