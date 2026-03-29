@@ -15,6 +15,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ImpressumPage from './pages/ImpressumPage';
 import ToolsPage from './pages/ToolsPage';
+import BrandExplorer from './pages/BrandExplorer';
 
 const ROUTES: Record<string, () => JSX.Element> = {
   '/t/e8f2a7d1c4b9': () => <EmailFooter />,
@@ -22,6 +23,7 @@ const ROUTES: Record<string, () => JSX.Element> = {
   '/terms': () => <TermsOfService />,
   '/impressum': () => <ImpressumPage />,
   '/tools': () => <ToolsPage />,
+  '/brand': () => <BrandExplorer />,
 };
 
 function ScrollToHash() {

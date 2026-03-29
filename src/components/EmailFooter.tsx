@@ -39,7 +39,7 @@ export default function EmailFooter() {
                     <td style={{
                       fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
                       fontSize: 14,
-                      fontWeight: 600,
+                      fontWeight: 800,
                       color: '#16191f',
                       border: '2px solid #16191f',
                       padding: '2px 6px',

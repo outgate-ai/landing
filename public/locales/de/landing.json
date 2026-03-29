@@ -1,13 +1,13 @@
 {
   "nav": {
-    "logo": "og.ai",
+    "logo": "OG",
     "features": "Funktionen",
     "pricing": "Preise",
     "tools": "Tools",
     "console": "Konsole"
   },
   "hero": {
-    "title": "outgate.ai",
+    "title": "OUTGATE.ai",
     "descriptionPrefix": "Das AI Gateway, das",
     "descriptionSuffix": "übernimmt, damit Sie sich auf das",
     "descriptionHighlight": "Entwickeln",
@@ -174,7 +174,7 @@
     "title": "Volle Observability",
     "description": "Komplette Transparenz über Ihren KI-Traffic. Provider-Metriken, Latenz-Aufschlüsselungen und Guardrail-Audit-Logs, alles integriert.",
     "slides": {
-      "dashboard": "Outgate.ai Dashboard mit Echtzeit-Analytics für das KI-Gateway",
+      "dashboard": "outgate.ai Dashboard mit Echtzeit-Analytics für das KI-Gateway",
       "metrics": "Organisationsweite Metriken mit Traffic-Übersicht und Latenz-Aufschlüsselung",
       "monitoring": "Smart-Router-Monitoring mit Upstream-Aufschlüsselung und Guardrail-Metriken"
     },
@@ -202,7 +202,7 @@
   "email": {
     "founderName": "Ali Khoramshahi",
     "founderTitle": "Gründer",
-    "logoText": "outgate.ai",
+    "logoText": "OG",
     "tagline": "KI-Gateway & Guardrails-Plattform",
     "website": "Website",
     "console": "Konsole",
@@ -230,7 +230,7 @@
     "company": "Unternehmen",
     "contact": "Kontakt",
     "meetFounder": "Termin mit Gründer",
-    "copyright": "© 2026 Outgate.ai",
+    "copyright": "© 2026 outgate.ai",
     "tagline": "KI-Gateway & Guardrails-Plattform"
   },
   "language": {
@@ -239,7 +239,7 @@
   },
   "integration": {
     "title": "Sofortige Integration",
-    "subtitle": "{{tool}} mit einem einzigen Befehl uber Outgate leiten. Guardrails, Protokollierung und Kostenverfolgung sofort einsatzbereit.",
+    "subtitle": "{{tool}} mit einem einzigen Befehl uber outgate.ai leiten. Guardrails, Protokollierung und Kostenverfolgung sofort einsatzbereit.",
     "downloadLink": "CLI-Tool herunterladen, um loszulegen."
   },
   "tools": {
@@ -250,7 +250,7 @@
     "copy": "Kopieren",
     "quickStart": "Schnellstart",
     "step1": "Im Browser anmelden",
-    "step2": "{{tool}} uber Outgate leiten",
+    "step2": "{{tool}} uber outgate.ai leiten",
     "step3": "Metriken und Kosten anzeigen",
     "ideTitle": "IDE-Integration",
     "ideSubtitle": "{{tool}} mit VS Code, Cursor oder einem anderen Tool verwenden, das die API-Basis-URL unterstutzt.",

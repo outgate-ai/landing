@@ -1,13 +1,13 @@
 {
   "nav": {
-    "logo": "og.ai",
+    "logo": "OG",
     "features": "Features",
     "pricing": "Pricing",
     "tools": "Tools",
     "console": "Console"
   },
   "hero": {
-    "title": "outgate.ai",
+    "title": "OUTGATE.ai",
     "descriptionPrefix": "The AI gateway that handles",
     "descriptionSuffix": "so you can focus on",
     "descriptionHighlight": "building",
@@ -174,7 +174,7 @@
     "title": "Full Observability",
     "description": "Complete visibility into your AI traffic. Per-provider metrics, latency breakdowns, and guardrail audit logs built in.",
     "slides": {
-      "dashboard": "Outgate.ai Dashboard showing real-time AI gateway analytics",
+      "dashboard": "outgate.ai Dashboard showing real-time AI gateway analytics",
       "metrics": "Organization-wide metrics with traffic overview and latency breakdown",
       "monitoring": "Smart router monitoring with upstream breakdown and guardrail metrics"
     },
@@ -202,7 +202,7 @@
   "email": {
     "founderName": "Ali Khoramshahi",
     "founderTitle": "Founder",
-    "logoText": "outgate.ai",
+    "logoText": "OG",
     "tagline": "AI Gateway & Guardrails Platform",
     "website": "Website",
     "console": "Console",
@@ -230,7 +230,7 @@
     "company": "Company",
     "contact": "Contact",
     "meetFounder": "Meet with Founder",
-    "copyright": "© 2026 Outgate.ai",
+    "copyright": "© 2026 outgate.ai",
     "tagline": "AI Gateway & Guardrails Platform"
   },
   "language": {
@@ -239,7 +239,7 @@
   },
   "integration": {
     "title": "Instant Integration",
-    "subtitle": "Route {{tool}} through Outgate with a single command. Guardrails, logging, and cost tracking out of the box.",
+    "subtitle": "Route {{tool}} through outgate.ai with a single command. Guardrails, logging, and cost tracking out of the box.",
     "downloadLink": "Download the CLI tool to get started."
   },
   "tools": {
@@ -250,7 +250,7 @@
     "copy": "Copy",
     "quickStart": "Quick Start",
     "step1": "Authenticate via browser",
-    "step2": "Run {{tool}} through Outgate",
+    "step2": "Run {{tool}} through outgate.ai",
     "step3": "View metrics and cost",
     "ideTitle": "IDE Integration",
     "ideSubtitle": "Use {{tool}} with VS Code, Cursor, or any tool that supports API base URL override.",
