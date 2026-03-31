@@ -13,7 +13,7 @@ export default function EmailFooter() {
         <tbody>
           {/* Divider */}
           <tr>
-            <td style={{ padding: '20px 0', borderTop: '2px solid #e2e8f0' }} />
+            <td style={{ padding: '10px 0 0 0', borderTop: '2px solid #e2e8f0' }} />
           </tr>
 
           {/* Name + title */}
@@ -33,7 +33,7 @@ export default function EmailFooter() {
           {/* Logo */}
           <tr>
             <td style={{ paddingBottom: 6 }}>
-              <img src="https://outgate.ai/logos/outgate-purple.png" alt="OUTGATE.ai" style={{ height: 24 }} />
+              <img src="https://outgate.ai/logos/outgate-purple-sm.png" alt="OUTGATE.ai" width={165} height={24} style={{ height: 24, width: 'auto' }} />
             </td>
           </tr>
 
