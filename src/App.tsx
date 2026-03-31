@@ -6,7 +6,7 @@ import ValueProposition from './components/ValueProposition';
 import RoutingVisualizer from './components/RoutingVisualizer';
 import Features from './components/Features';
 import GuardrailVisualizer from './components/GuardrailVisualizer';
-import Pricing from './components/Pricing';
+// import Pricing from './components/Pricing';
 import Dashboard from './components/Dashboard';
 import Integration from './components/Integration';
 import Footer from './components/Footer';
