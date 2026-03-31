@@ -130,6 +130,8 @@ function drawGlobe(
   radius: number,
 ) {
   const mi = GLOBE_CONFIG.animation.mouseInfluence;
+  const isMobile = cx * 2 < 600; // canvas width < 600 ≈ mobile
+  const ptDim = isMobile ? 0.2 : 1; // reduce point intensity on mobile
   const drawn = new Set<string>();
 
   // Connections
@@ -205,7 +207,7 @@ function drawGlobe(
     const ps = pt.size * (1 + pt.z * 0.2);
     if (pt.size > 1) {
       const grad = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, ps * 4);
-      grad.addColorStop(0, `rgba(255, 200, 87, ${opacity * 0.8})`);
+      grad.addColorStop(0, `rgba(255, 200, 87, ${opacity * 0.8 * ptDim})`);
       grad.addColorStop(1, 'transparent');
       ctx.fillStyle = grad;
       ctx.beginPath();
@@ -213,8 +215,8 @@ function drawGlobe(
       ctx.fill();
     }
     ctx.fillStyle = pt.z > 0
-      ? `rgba(255, 213, 128, ${opacity * 0.9})`
-      : `rgba(204, 163, 71, ${opacity * 0.8})`;
+      ? `rgba(255, 213, 128, ${opacity * 0.9 * ptDim})`
+      : `rgba(204, 163, 71, ${opacity * 0.8 * ptDim})`;
     ctx.beginPath();
     ctx.arc(pt.x, pt.y, ps, 0, Math.PI * 2);
     ctx.fill();
