@@ -33,7 +33,7 @@ export default function EmailFooter() {
           {/* Logo */}
           <tr>
             <td style={{ paddingBottom: 6 }}>
-              <img src="https://outgate.ai/logos/outgate-purple-on-dark.png" alt="OUTGATE.ai" style={{ height: 24 }} />
+              <img src="https://outgate.ai/logos/outgate-purple.png" alt="OUTGATE.ai" style={{ height: 24 }} />
             </td>
           </tr>
 
