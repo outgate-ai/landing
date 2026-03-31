@@ -62,7 +62,7 @@ export default function Hero() {
           </div>
           <div className="hero-actions">
             <a href={env.consoleUrl} className="btn-primary">{t('hero.ctaGetStarted')}</a>
-            <a href="#pricing" className="btn-secondary">{t('hero.ctaViewPricing')}</a>
+            {/* <a href="#pricing" className="btn-secondary">{t('hero.ctaViewPricing')}</a> */}
             <a href="https://calendar.app.google/8X8uKdNYnmrgTfD3A" target="_blank" rel="noopener noreferrer" className="btn-secondary">{t('hero.ctaMeetFounder')}</a>
           </div>
         </div>

@@ -52,7 +52,7 @@ export default function App() {
           <div className="header-logo">{t('nav.logo')}</div>
           <nav className="header-nav">
             <a href="#features" className="header-nav-link">{t('nav.features')}</a>
-            <a href="#pricing" className="header-nav-link">{t('nav.pricing')}</a>
+            {/* <a href="#pricing" className="header-nav-link">{t('nav.pricing')}</a> */}
             <a href="/tools" className="header-nav-link">{t('nav.tools')}</a>
           </nav>
           <a href={env.consoleUrl} className="header-console-btn">
@@ -66,7 +66,7 @@ export default function App() {
       <GuardrailVisualizer />
       <Features />
       <RoutingVisualizer />
-      <Pricing />
+      {/* <Pricing /> */}
       <Dashboard />
       <Integration />
       <Footer />

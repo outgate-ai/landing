@@ -56,7 +56,7 @@ export default function ToolsPage() {
           <a href="/" className="tools-logo">{t('nav.logo')}</a>
           <nav className="tools-nav">
             <a href="/#features" className="tools-nav-link">{t('nav.features')}</a>
-            <a href="/#pricing" className="tools-nav-link">{t('nav.pricing')}</a>
+            {/* <a href="/#pricing" className="tools-nav-link">{t('nav.pricing')}</a> */}
             <a href="/tools" className="tools-nav-link active">{t('nav.tools')}</a>
           </nav>
         </div>

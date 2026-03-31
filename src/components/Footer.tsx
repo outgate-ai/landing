@@ -47,7 +47,7 @@ export default function Footer() {
           <h4>{t('footer.product')}</h4>
           <ul>
             <li><a href="#features">{t('footer.features')}</a></li>
-            <li><a href="#pricing">{t('footer.pricing')}</a></li>
+            {/* <li><a href="#pricing">{t('footer.pricing')}</a></li> */}
             <li><a href={env.consoleUrl}>{t('footer.console')}</a></li>
           </ul>
         </div>
