@@ -33,23 +33,7 @@ export default function EmailFooter() {
           {/* Logo */}
           <tr>
             <td style={{ paddingBottom: 6 }}>
-              <table cellPadding={0} cellSpacing={0}>
-                <tbody>
-                  <tr>
-                    <td style={{
-                      fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-                      fontSize: 14,
-                      fontWeight: 800,
-                      color: '#16191f',
-                      border: '2px solid #16191f',
-                      padding: '2px 6px',
-                      lineHeight: 1,
-                    }}>
-                      {t('email.logoText')}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <img src="https://outgate.ai/logos/outgate-purple-on-dark.png" alt="OUTGATE.ai" style={{ height: 24 }} />
             </td>
           </tr>
 
