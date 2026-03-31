@@ -23,14 +23,14 @@ function buildPointCloud(): Point3D[] {
   for (let i = 0; i < points.length; i++) {
     const point = points[i];
     const pointLat = (Math.asin(point.y) * 180) / Math.PI;
-    if (pointLat < -60) continue;
+    if (pointLat < -75) continue;
 
     const candidates: { index: number; distance: number; sameRegion: boolean; isMajorCity: boolean }[] = [];
 
     for (let j = 0; j < points.length; j++) {
       if (i === j) continue;
       const targetLat = (Math.asin(points[j].y) * 180) / Math.PI;
-      if (targetLat < -60) continue;
+      if (targetLat < -75) continue;
 
       const dx = points[j].x - point.x;
       const dy = points[j].y - point.y;
@@ -205,7 +205,7 @@ function drawGlobe(
     const ps = pt.size * (1 + pt.z * 0.2);
     if (pt.size > 1) {
       const grad = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, ps * 4);
-      grad.addColorStop(0, `rgba(147, 112, 219, ${opacity * 0.6})`);
+      grad.addColorStop(0, `rgba(255, 200, 87, ${opacity * 0.8})`);
       grad.addColorStop(1, 'transparent');
       ctx.fillStyle = grad;
       ctx.beginPath();
@@ -213,8 +213,8 @@ function drawGlobe(
       ctx.fill();
     }
     ctx.fillStyle = pt.z > 0
-      ? `rgba(255, 255, 255, ${opacity * 0.9})`
-      : `rgba(147, 112, 219, ${opacity * 0.6})`;
+      ? `rgba(255, 213, 128, ${opacity * 0.9})`
+      : `rgba(204, 163, 71, ${opacity * 0.8})`;
     ctx.beginPath();
     ctx.arc(pt.x, pt.y, ps, 0, Math.PI * 2);
     ctx.fill();
@@ -302,7 +302,8 @@ export default function Globe() {
       const h = canvas.clientHeight;
       ctx.clearRect(0, 0, w, h);
 
-      // Always rotate
+      // Always rotate around Y; keep X tilt from config
+      rotationRef.current.x = GLOBE_CONFIG.rotation.x;
       rotationRef.current.y += GLOBE_CONFIG.animation.speed;
 
       // Globe is always centered in its container, radius fills the space

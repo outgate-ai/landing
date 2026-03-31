@@ -59,6 +59,12 @@ export const majorCities = [
   { name: 'Johannesburg', lat: -26.2041, lon: 28.0473, size: 2 },
   { name: 'Nairobi', lat: -1.2921, lon: 36.8219, size: 1 },
   { name: 'Casablanca', lat: 33.5731, lon: -7.5898, size: 2 },
+  { name: 'Cape Town', lat: -33.9249, lon: 18.4241, size: 2 },
+  { name: 'Accra', lat: 5.6037, lon: -0.187, size: 1 },
+  { name: 'Dar es Salaam', lat: -6.7924, lon: 39.2083, size: 1 },
+  { name: 'Addis Ababa', lat: 9.0054, lon: 38.7636, size: 1 },
+  { name: 'Kinshasa', lat: -4.4419, lon: 15.2663, size: 1 },
+  { name: 'Luanda', lat: -8.8399, lon: 13.2894, size: 1 },
   // Asia
   { name: 'Tokyo', lat: 35.6895, lon: 139.6917, size: 3 },
   { name: 'Beijing', lat: 39.9042, lon: 116.4074, size: 3 },
@@ -76,6 +82,14 @@ export const majorCities = [
   { name: 'Sydney', lat: -33.8688, lon: 151.2093, size: 2 },
   { name: 'Melbourne', lat: -37.8136, lon: 144.9631, size: 1 },
   { name: 'Auckland', lat: -36.8485, lon: 174.7633, size: 1 },
+  { name: 'Perth', lat: -31.9505, lon: 115.8605, size: 1 },
+  { name: 'Brisbane', lat: -27.4698, lon: 153.0251, size: 1 },
+  // South America (additional)
+  { name: 'Montevideo', lat: -34.9011, lon: -56.1645, size: 1 },
+  { name: 'Caracas', lat: 10.4806, lon: -66.9036, size: 1 },
+  { name: 'Medellín', lat: 6.2476, lon: -75.5658, size: 1 },
+  { name: 'Brasília', lat: -15.7975, lon: -47.8919, size: 1 },
+  { name: 'Curitiba', lat: -25.4284, lon: -49.2733, size: 1 },
 ];
 
 export function getCitiesInVicinity(
@@ -113,6 +127,6 @@ export function getCitiesInVicinity(
 }
 
 export const GLOBE_CONFIG: GlobeConfig = {
-  rotation: { x: 0.3, y: 0 },
+  rotation: { x: -0.2, y: 0 },
   animation: { speed: 0.001, mouseInfluence: 0.05 },
 };

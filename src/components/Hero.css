@@ -111,19 +111,18 @@
 
 /* Magic "building" word */
 .hero-magic-word {
-  background: linear-gradient(135deg, #9370db 0%, #667eea 40%, #c084fc 70%, #9370db 100%);
-  background-size: 200% 200%;
+  background: linear-gradient(90deg, #9370db 0%, #9370db 20%, #c084fc 35%, #ffd580 45%, #ffc857 50%, #ffd580 55%, #c084fc 65%, #9370db 80%, #9370db 100%);
+  background-size: 400% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
-  animation: hero-shimmer 3s ease-in-out infinite;
+  animation: hero-shimmer 2.7s linear infinite;
 }
 
 @keyframes hero-shimmer {
   0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 .hero-actions {
