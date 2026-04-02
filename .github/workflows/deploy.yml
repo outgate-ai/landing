@@ -72,8 +72,8 @@ jobs:
 
           if is_prod:
               html = html.replace('<!-- __ROBOTS_META__ -->', '<meta name="robots" content="index, follow" />')
-              ga = '''<script async src="https://www.googletagmanager.com/gtag/js?id=G-3XTL1T794G"></script>
-              <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-3XTL1T794G");gtag("config","AW-18043717357");</script>'''
+              ga = '''<script async src="https://www.googletagmanager.com/gtag/js?id=G-RTHK4695DD"></script>
+              <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-RTHK4695DD");</script>'''
               html = html.replace('<!-- __GA_SNIPPET__ -->', ga)
           else:
               html = html.replace('<!-- __ROBOTS_META__ -->', '<meta name="robots" content="noindex, nofollow" />')
