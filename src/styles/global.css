@@ -4,6 +4,42 @@
   box-sizing: border-box;
 }
 
+/* ─── Scroll-driven fade-up reveals ─── */
+
+/* Elements start hidden, revealed by JS IntersectionObserver or CSS view() */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger siblings for cascading card reveals */
+.reveal:nth-child(2) { transition-delay: 0.15s; }
+.reveal:nth-child(3) { transition-delay: 0.30s; }
+.reveal:nth-child(4) { transition-delay: 0.45s; }
+.reveal:nth-child(5) { transition-delay: 0.60s; }
+.reveal:nth-child(6) { transition-delay: 0.75s; }
+
+/* Hero: CSS keyframe animations — staggered per element (above the fold, no observer) */
+@keyframes hero-reveal {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-brand          { animation: hero-reveal 0.7s ease-out 0.1s both; }
+.hero-description    { animation: hero-reveal 0.7s ease-out 0.3s both; }
+.hero-description-secondary { animation: hero-reveal 0.7s ease-out 0.5s both; }
+.hero-trust          { animation: hero-reveal 0.7s ease-out 0.7s both; }
+.hero-actions        { animation: hero-reveal 0.7s ease-out 0.9s both; }
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;

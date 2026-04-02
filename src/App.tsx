@@ -31,6 +31,51 @@ const ROUTES: Record<string, () => JSX.Element> = {
   '/brand': () => <BrandExplorer />,
 };
 
+/** Adds .reveal to text/card elements, observes them, adds .visible on entry */
+function useScrollReveal() {
+  useEffect(() => {
+    const selectors = [
+      // Hero is handled by CSS @keyframes (above the fold, no observer needed)
+      // Headings and body text
+      '.how-it-works-title', '.section-title', '.dashboard-title', '.gv-heading', '.rv-heading',
+      '.dashboard-description', '.integration-subtitle', '.rv-subheading', '.gv-subheading',
+      '.step-description', '.feature-description',
+      '.integration-section h2',
+      // Cards and list items
+      '.feature-item', '.how-step', '.value-card', '.pricing-card',
+      // Diagrams and visualizers
+      '.gv-card', '.gv-progress',
+      '.rv-tabs', '.rv-canvas',
+      // Dashboard image gallery
+      '.dashboard-preview',
+      // Integration code terminal
+      '.integration-terminal', '.integration-toggle',
+    ].join(',');
+
+    const els = document.querySelectorAll(selectors);
+    els.forEach((el) => el.classList.add('reveal'));
+
+    // Force a paint so the browser renders elements at opacity:0
+    // before we start observing and adding .visible
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: '0px 0px -40px 0px' },
+        );
+        els.forEach((el) => observer.observe(el));
+      });
+    });
+  }, []);
+}
+
 function ScrollToHash() {
   useEffect(() => {
     const hash = window.location.hash;
@@ -43,6 +88,7 @@ function ScrollToHash() {
   }, []);
   return null;
 }
+
 
 export default function App() {
   const { t, i18n } = useTranslation('landing');
@@ -64,6 +110,8 @@ export default function App() {
     document.documentElement.lang = lng;
     setMenuOpen(false);
   };
+
+  useScrollReveal();
 
   const route = ROUTES[window.location.pathname];
   if (route) return route();
